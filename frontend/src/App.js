@@ -1,9 +1,18 @@
 import "./App.css"
 import Home from "./pages/Home"
+import Cities from "./pages/Cities"
+import Error404 from "./pages/Error404"
+import {BrowserRouter, Route, Switch, Redirect} from "react-router-dom"
 
 const App = () => {
   return (
-    <Home/>
+    <BrowserRouter>
+        <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route path="/cities" component={Cities}/>
+            <Redirect to="/notFound" component={Error404}/>
+        </Switch>
+    </BrowserRouter>
   )
 }
 
