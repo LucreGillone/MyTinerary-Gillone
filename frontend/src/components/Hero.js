@@ -1,8 +1,14 @@
+
+
 const Hero = () => {
     return ( 
         <div className="hero">
-            <h4>ESTE ES EL HERO</h4>
+            <video autoPlay="autoplay" muted loop id="video">
+                 <source src='/assets/video_hero.mp4' type="video/mp4" />
+            </video>
+               
         </div>
+            
     )
 }
 
