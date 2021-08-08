@@ -11,10 +11,10 @@ const Home = () => {
             <Hero/>
             <Header/>
             <CallToAction/>
-            <h2>Popular Mytineraries</h2>
+            <h2 id="popularMyt">Popular Mytineraries</h2>
             <div className="plane" style={{
-                        backgroundImage: `url("/assets/avion2.png")`,
-                        }}>
+                backgroundImage: `url("/assets/ventana.png")`,
+                }}>
                 <CarouselComp/>
             </div>
             
