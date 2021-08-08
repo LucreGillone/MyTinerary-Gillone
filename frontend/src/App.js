@@ -12,7 +12,8 @@ const App = () => {
         <Switch>
             <Route exact path="/" component={Home}/>
             <Route path="/cities" component={Cities}/>
-            <Redirect to="/notFound" component={Error404}/>
+            <Route path="/notFound" component={Error404}/>
+            <Redirect to="/notFound"/>
         </Switch>
     </BrowserRouter>
   )

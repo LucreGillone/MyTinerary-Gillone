@@ -1,6 +1,13 @@
 const CallToAction = () => {
     return (
-        <button>Call To Action</button>
+        <div className="callToA" 
+        // style={{
+        //     backgroundImage: `url("/assets/callto.png")`,
+        //     }}
+        >
+              <button>Call To Action</button>
+        </div>
+      
     )
 }
 

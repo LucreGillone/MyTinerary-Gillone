@@ -4,28 +4,68 @@ import {
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
-//   CarouselCaption
 } from 'reactstrap';
+
+
 
 const items = [
   {
-    src : ["/assets/agra.jpg", "/assets/cairo.jpg", "/assets/bali.jpg", "/assets/cappadocia.jpg",],
-    altText: 'Agra',
-    caption: ["Agra", "Cairo", "Bali", "Cappadocia"]
+    src : [{
+        picture:"/assets/agra.jpg",
+        city: "Agra"
+    },
+    {
+        picture:"/assets/cairo.jpg",
+        city: "Cairo"
+    },
+    {
+        picture:"/assets/bali.jpg",
+        city: "Bali"
+    },
+    {
+        picture:"/assets/cappadocia.jpg",
+        city: "Cappadocia"
+    },]     
   },
   {
-    src: ["/assets/machu_picchu.jpg", "/assets/london.jpg", "/assets/moscow.jpg", "/assets/new_york.jpg",],
-    altText: 'Bali',
-    caption: ["Machu Picchu", "London", "Moscow", "New York"]
+    src: [{
+        picture:"/assets/machu_picchu.jpg",
+        city: "Machu Picchu"
+    },
+    {
+        picture:"/assets/london.jpg",
+        city: "London"
+    },
+    {
+        picture:"/assets/moscow.jpg",
+        city: "Moscow"
+    },
+    {
+        picture:"/assets/new_york.jpg",
+        city: "New York"
+    },]
   },
   {
-    src: ["/assets/paris.jpg", "/assets/sidney.jpg", "/assets/rome.jpg", "/assets/vatnajokull.jpg"],
-    altText: 'Cairo',
-    caption: ["Paris", "Sidney", "Rome", "Vatnajokull"]
+    src: [{
+        picture:"/assets/paris.jpg",
+        city: "Paris"
+    },
+    {
+        picture:"/assets/sidney.jpg",
+        city: "Sidney"
+    },
+    {
+        picture:"/assets/rome.jpg",
+        city: "Rome"
+    },
+    {
+        picture:"/assets/vatnajokull.jpg",
+        city: "Vatnajokull"
+    },]
   }
 ];
 
-const Carousell = (props) => {
+const CarouselComp = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -47,32 +87,24 @@ const Carousell = (props) => {
   }
   
 
-    const slides = items.map((item) => {
+    const slides = items.map((item, index) => {
     return (
       <CarouselItem
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
-        key={item.src}
+        key={index}
       >
-        <div className="photoContainer"
-        // style= {{
-        //     backgroundImage: `url("./assets/avion.jpg")`
-        // }}
-        >
+        <div className="photoContainer">   
+            
             <div className="photos"> 
-                {item.src.map((picture) => (
-                    <div className="photo"
+                {item.src.map((image) => (
+                    <div className="photo" key={image.city}
                         style={{
-                        backgroundImage: `url("${picture}")`,
+                        backgroundImage: `url("${image.picture}")`,
                         }}>
+                        <h3>{image.city}</h3>
                     </div>
-                ))}
-                
-            </div>
-            <div className="cityNames">
-                {item.caption.map((city) => (
-                    <h3 className="city">{city}</h3>
-                ))}
+                ))} 
             </div>
         </div>
           
@@ -82,18 +114,21 @@ const Carousell = (props) => {
   });
 
   return (
-    <Carousel
+    <Carousel 
+      className="carousel-fade"
+      interval="3000"
       activeIndex={activeIndex}
       next={next}
       previous={previous}
     >
-      <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
+      <CarouselIndicators items={slides} activeIndex={activeIndex} onClickHandler={goToIndex} />
       {slides}
-      <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-      <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+      <CarouselControl direction="prev" 
+      directionText="" 
+      onClickHandler={previous} />
+      <CarouselControl direction="next" directionText="" onClickHandler={next} />
     </Carousel>
   );
 }
 
-
-export default Carousell;
+export default CarouselComp;
