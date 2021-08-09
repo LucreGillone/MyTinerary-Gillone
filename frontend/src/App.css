@@ -23,6 +23,7 @@ div.hero {
 header h1{
     margin-top: 2vmin;
     font-size: 17vmin;
+    text-shadow: -1px 3px 7px rgba(255,255,255,0.6);
 }
 
 header h2 {
@@ -41,6 +42,8 @@ div.footer {
     align-items: flex-end;
     min-height: 20vh;
     width: 100%;
+    background: rgb(88,183,247);
+background: linear-gradient(0deg, rgba(88,183,247,1) 0%, rgba(101, 103, 104, 0.397) 100%);
 }
 
 div.iconsRef img, div.socialMediaIcons img {
@@ -79,7 +82,11 @@ nav.navBar {
     color: black;
     pointer-events: all;
     font-size: 3vmin;
-    
+}
+
+nav .active {
+    color: darkblue;
+    text-decoration: underline;
 }
 
 div.callToA {
@@ -90,6 +97,8 @@ div.callToA {
     background-position: center;
     justify-content: center;
     align-items: center;
+    background: rgb(101,103,104);
+background: linear-gradient(0deg, rgba(101,103,104,0.379) 0%, rgba(255,255,255,1) 100%);
 }
 
 button {
@@ -100,7 +109,7 @@ button {
     border-top-right-radius: 5%;
     border-bottom-right-radius: 5%;
     border-bottom-left-radius: 5%;
-    background-color: whitesmoke;
+    background: none;
     border: none;
     font-size: 3.5vmin;
     transition:all .5s ease-in-out;
@@ -138,7 +147,7 @@ div.photo {
 
 div.carousel-fade {
     width: 98vw;
-    /* z-index: -1; */
+
 }
 
 div.cityNames {
@@ -164,9 +173,15 @@ div.plane {
     width: 100%;
     height: 67vh;
     object-fit: contain;
+
+   
 }
 
-.sr-only {
+div.planeTitle {
+    width: 100%;
+}
+
+.sr-only, .carousel-indicators {
     display: none;
 }
 
@@ -175,7 +190,14 @@ div.plane {
     align-items: flex-end;
     margin: 0.3rem;
     bottom: 0;
-    position: fixed;
+    width: 5%;
+    height: 5%;
+    position: absolute;
+    top: -7vmin;
+}
+
+div.carousel-inner {
+    z-index: -1;
 }
 
 .carousel-control-next-icon, .carousel-control-prev-icon {
@@ -196,18 +218,100 @@ div.notFound {
 
 }
 
-@media screen and (max-width:768px) {
-    video {
-        
-        height:60vh;
+@media screen and (max-width:1200px) {
+    div.photo {
+        width: 45vmin;
+    }
+
+    div.carousel-fade {
+        width: 100vw;
     }
 
     div.plane {
-       background-image: none;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width:1100px) {
+    div.photo {
+        /* width:fit-content;    */
+        width: 27vmax;
+        margin: 0 4.5vmin
+    }
+    div.plane {
+        display: grid;
+        grid-template-columns: repeat(4, 274px);
+        
+    }
+}
+
+@media screen and (max-width:1000px) {
+    div.plane {
+        z-index: -1;
+        background-size: 0%;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        background-color: rgba(101, 103, 104, 0.397);
+        
+    }
+
+    div.photo {
+        margin: 1rem 0;
+        box-shadow: 2px 3px 5px 6px rgba(0,0,0,0.74);
+    }
+
+}
+
+@media screen and (max-width:769px) {
+    video {
+        height:50%;
+    }
+
+    header {
+        margin: 0;
     }
 
     div.footer {
         flex-direction: column;
         align-items: center;
+    }
+
+    div.photo {
+        border-radius: 0%;
+        margin: 2rem;
+        /* box-shadow: none; */
+    }
+
+    div.photos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    div.plane {
+        height: auto;
+    }
+}
+
+@media screen and (min-width:769px) {
+    div.callToA {
+        position: absolute;
+        top: 55vmin;
+        background-color: none;
+        background: none;
+    }
+
+    nav.navBar img {
+        width: 4vmin;
+        height: 4vmin;
+    }
+} 
+
+@media screen and (max-width:350px){
+    div.callToA h3{
+        visibility: hidden;
     }
 }

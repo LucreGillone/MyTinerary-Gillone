@@ -1,12 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-} from 'reactstrap';
-
-
+import { Carousel,  CarouselItem,  CarouselControl,  CarouselIndicators} from 'reactstrap';
 
 const items = [
   {
@@ -107,8 +100,7 @@ const CarouselComp = (props) => {
                 ))} 
             </div>
         </div>
-          
-        {/* <CarouselCaption captionText={item.caption} captionHeader={item.caption} /> */}
+    
       </CarouselItem>
     );
   });
