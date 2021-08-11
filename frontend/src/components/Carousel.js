@@ -45,7 +45,7 @@ const items = [
     },
     {
         picture:"/assets/sidney.jpg",
-        city: "Sidney"
+        city: "Sydney"
     },
     {
         picture:"/assets/rome.jpg",
@@ -78,7 +78,6 @@ const CarouselComp = (props) => {
     if (animating) return;
     setActiveIndex(newIndex);
   }
-  
 
     const slides = items.map((item, index) => {
     return (

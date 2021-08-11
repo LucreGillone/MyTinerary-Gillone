@@ -2,7 +2,7 @@ import {Link} from "react-router-dom"
 
 const Footer = () => {
     return (
-        <div className="footer">
+        <footer>
             <div className="iconsRef">
                 <Link to="/"><img src ="/assets/home.svg" alt="homeIcon"/></Link>
                 <Link to="/cities"><img src ="/assets/building.svg" alt="citiesIcon"/></Link>
@@ -14,8 +14,7 @@ const Footer = () => {
                 <img src ="/assets/facebook.svg" alt="facebookIcon"/>                
                 <img src ="/assets/twitter.svg" alt="twitterIcon"/>
             </div>
-            
-        </div>
+        </footer>
     )
 }
 
