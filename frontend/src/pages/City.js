@@ -1,11 +1,17 @@
-import { Nav } from "../components/NavBar"
+// import { Nav } from "../components/NavBar"
 
-const City () => {
-    return (
-        <>
-            <Nav/>
-        </>
-    )
-}
+// const City = (props) => {
+//     const cities = props.cities
+//     const chosenCity = props.cities.find(city => city.id === parseInt(props.match.params.id))
 
-export default City
+//     return (
+//         <>
+//             <Nav/>
+//             <div>
+//                 <h3>{chosenCity.cityName}</h3>
+//             </div>
+//         </>
+//     )
+// }
+
+// export default City
