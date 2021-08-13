@@ -1,17 +1,27 @@
-// import { Nav } from "../components/NavBar"
+import  Nav  from "../components/NavBar"
+import axios from "axios"
+import {useState} from "react"
+import { useEffect } from "react"
 
-// const City = (props) => {
-//     const cities = props.cities
-//     const chosenCity = props.cities.find(city => city.id === parseInt(props.match.params.id))
+const City = (props) => {
+ 
+    const [city, setCity] = useState({})
 
-//     return (
-//         <>
-//             <Nav/>
-//             <div>
-//                 <h3>{chosenCity.cityName}</h3>
-//             </div>
-//         </>
-//     )
-// }
+    useEffect(() => {
+        axios.get(`http://localhost:4000/api/cities/${props.match.params.id}`)
+        .then(res => setCity(res.data.response))
+        
+    }, [])
 
-// export default City
+
+    return (
+        <>
+            <Nav/>
+            <div>
+                <h3>{city.cityName}</h3>
+            </div>
+        </>
+    )
+}
+
+export default City

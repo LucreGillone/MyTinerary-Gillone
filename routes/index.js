@@ -1,91 +1,16 @@
 const express = require("express")
+
+const citiesControllers = require("../controllers/citiesControllers")
+
+
 const router = express.Router()
+router.route("/cities")
+.get(citiesControllers.showAllCities)
+.post(citiesControllers.addCity)
 
-const citiesInfo = [
-    {
-       picture:"/assets/bali.jpg",
-       cityName: "Bali",
-       country: "Indonesia",
-       id:1, 
-   },
-   {
-       picture:"/assets/london.jpg",
-       cityName: "London",
-       country: "England",
-       id: 2,
-   },
-   {
-       picture:"/assets/new_york.jpg",
-       cityName: "New York",
-       country: "United States",
-       id: 3,
-   },
-   {
-       picture:"/assets/cairo.jpg",
-       cityName: "Cairo",
-       country: "Egypt",
-       id: 4,
-   },
-   {
-       picture:"/assets/cappadocia.jpg",
-       cityName: "Cappadocia",
-       country: "Turkey", 
-       id: 5,
-   },
-   {
-       picture:"/assets/machu_picchu.jpg",
-       cityName: "Machu Picchu", 
-       country: "Peru",
-       id: 6,
-   },
-   {
-       picture:"/assets/paris.jpg",
-       cityName: "Paris",
-       country: "France",
-       id: 7,
-   },
-   {
-       picture:"/assets/moscow.jpg",
-       cityName: "Moscow",
-       country: "Russia",
-       id: 8,
-   },
-   {
-       picture:"/assets/rome.jpg",
-       cityName: "Rome",
-       country: "Italy",
-       id: 9,
-   },
-   {
-       picture:"/assets/sidney.jpg",
-       cityName: "Sidney",
-       country: "Australia", 
-       id: 10,
-   },
-   {
-       picture:"/assets/vatnajokull.jpg",
-       cityName: "Vatnajokull",
-       country: "Iceland", 
-       id: 11,
-   },
-   {
-       picture:"/assets/agra.jpg",
-       cityName: "Agra",
-       country: "India",
-       id: 12,
-   }
-   
-]
+router.route("/cities/:id")
+.get(citiesControllers.showOneCity)
 
-router.route("/api/cities")
-.get((req, res) => {
-    res.json({response : cities})
-})
-
-router.route("/api/city/:id")
-.get((req, res) => {
-    const city = cities.find((city) => city.id === parseInt(req.param.id))
-    res.json({response : city})
-})
+// router.route("/cities/:id").get(citiesControllers.NOMBREDELCONTROLER)
 
 module.exports = router
