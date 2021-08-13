@@ -85,8 +85,18 @@ const citiesControllers = {
 
 
     showOneCity: (req, res) => {
-        const city = citiesInfo.find((city) => city.id === parseInt(req.params.id))
-        res.json({response : city})
+        City.findOne({_id:req.params.id})
+        .then((city) => res.json({response:city}))
+    },
+
+    deleteCity: (req, res) => {
+        City.findOneAndDelete({_id: req.params.id})
+        .then(() => {
+            return res.json({success : true})
+        })
+        .catch((error) => 
+            res.json({success: false, response: error.message})
+        )
     },
 
     addCity: (req, res) => {

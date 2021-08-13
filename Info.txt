@@ -1,0 +1,107 @@
+const citiesInfo = [
+    {
+       "picture":"/assets/bali.jpg",
+       "cityName": "Bali",
+       "country": "Indonesia",
+       "description": , 
+       "language": "Indonesian"
+   },
+   {
+       "picture":"/assets/london.jpg",
+       "cityName": "London",
+       "country": "England",
+       "description": , 
+       "language": "English"
+   },
+   {
+       "picture":"/assets/new_york.jpg",
+       "cityName": "New York",
+       "country": "United States",
+       "description": , 
+       "language": "English"
+   },
+   {
+       "picture":"/assets/cairo.jpg",
+       "cityName": "Cairo",
+       "country": "Egypt",
+       "description": , 
+       "language": "Arabic"
+   },
+   {
+       "picture":"/assets/cappadocia.jpg",
+       "cityName": "Cappadocia",
+       "country": "Turkey", 
+       "description": , 
+       "language": "Tirkish"
+   },
+   {
+       "picture":"/assets/machu_picchu.jpg",
+       "cityName": "Machu Picchu", 
+       "country": "Peru",
+       "description": , 
+       "language": "Spanish"
+   },
+   {
+       "picture":"/assets/paris.jpg",
+       "cityName": "Paris",
+       "country": "France",
+       "description": , 
+       "language": "French"
+   },
+   {
+       "picture":"/assets/moscow.jpg",
+       "cityName": "Moscow",
+       "country": "Russia",
+       "description": , 
+       "language": "Russian"
+   },
+   {
+       "picture":"/assets/rome.jpg",
+       "cityName": "Rome",
+       "country": "Italy",
+       "description": , 
+       "language": "Italian"
+   },
+   {
+       "picture":"/assets/sidney.jpg",
+       "cityName": "Sidney",
+       "country": "Australia", 
+       "description": , 
+       "language": "English"
+   },
+   {
+       "picture":"/assets/vatnajokull.jpg",
+       "cityName": "Vatnajokull",
+       "country": "Iceland", 
+       "description": , 
+       "language": "Icelandic"
+   },
+   {
+       "picture":"/assets/agra.jpg",
+       "cityName": "Agra",
+       "country": "India",
+       "description": , 
+       "language": "Hindi"
+   }
+    {
+       "picture":"/assets/",
+       "cityName": "Amsterdam",
+       "country": "Netherlands",
+       "description": , 
+       "language": "Dutch"
+   }
+    {
+       "picture":"/assets/",
+       "cityName": "Buenos Aires",
+       "country": "Argentina",
+       "description": , 
+       "language": "Spanish"
+   }
+    {
+       "picture":"/assets/",
+       "cityName": "Skopelos",
+       "country": "Greece",
+       "description": , 
+       "language": "Greek"
+   }
+]
