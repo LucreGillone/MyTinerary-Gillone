@@ -77,38 +77,58 @@ const City = require("../models/City")
 
 const citiesControllers = {
 
-    showAllCities: (req, res) => {
-        City.find()
-        .then((cities) => res.json({response:cities}))
-        // res.json({response : citiesInfo})
+    showAllCities: async (req, res) => {
+        try {
+            var cities = await City.find()
+            res.json({success: true, response: cities})
+        } catch (error) {
+            res.json ({success: false, response: error.message})
+        }
+        
     },
 
 
-    showOneCity: (req, res) => {
-        City.findOne({_id:req.params.id})
-        .then((city) => res.json({response:city}))
+    showOneCity: async (req, res) => {
+        try {
+            var city = await City.findOne({_id:req.params.id})
+            if (city) {
+                res.json({success: true, response: city})
+            } else {
+                throw new Error("The city you're looking for does not exist")
+            }
+        } catch (error) {
+            res.json ({success: false, response: error.message})
+        }
+        
     },
 
-    deleteCity: (req, res) => {
-        City.findOneAndDelete({_id: req.params.id})
-        .then(() => {
-            return res.json({success : true})
-        })
-        .catch((error) => 
+    deleteCity: async (req, res) => {
+       try {
+           var deleteCity = await City.findOneAndDelete({_id: req.params.id})
+           res.json({success: true, response: deleteCity})
+       } catch(error) {
             res.json({success: false, response: error.message})
-        )
+       }      
     },
 
-    addCity: (req, res) => {
+    addCity: async (req, res) => {
         const newCity = new City({
             city: req.body.city,
             country: req.body.country,
             picture: req.body.picture,
             description: req.body.description
-        })
-        newCity.save()
-        .then(() =>res.json({success:true}))
-    }
+        }) 
+        try 
+        {await newCity.save()
+        res.json({success:true}))
+        } catch(error) {
+            res.json({success: false, response: error.message})
+        }
+    },
+    
+    // modifyCity: async (req, res) => {
+
+    // }
 }
 
 module.exports = citiesControllers

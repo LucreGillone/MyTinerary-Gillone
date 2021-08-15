@@ -4,104 +4,119 @@ const citiesInfo = [
        "cityName": "Bali",
        "country": "Indonesia",
        "description": , 
-       "language": "Indonesian"
+       "language": "Indonesian",
+       "hero": "/assets/"
    },
    {
        "picture":"/assets/london.jpg",
        "cityName": "London",
        "country": "England",
        "description": , 
-       "language": "English"
+       "language": "English",
+       "hero": "/assets/"
    },
    {
        "picture":"/assets/new_york.jpg",
        "cityName": "New York",
        "country": "United States",
        "description": , 
-       "language": "English"
+       "language": "English",
+       "hero": "/assets/"
    },
    {
        "picture":"/assets/cairo.jpg",
        "cityName": "Cairo",
        "country": "Egypt",
        "description": , 
-       "language": "Arabic"
+       "language": "Arabic",
+       "hero": "/assets/"
    },
    {
        "picture":"/assets/cappadocia.jpg",
        "cityName": "Cappadocia",
        "country": "Turkey", 
        "description": , 
-       "language": "Tirkish"
+       "language": "Tirkish",
+       "hero": "/assets/"
    },
    {
        "picture":"/assets/machu_picchu.jpg",
        "cityName": "Machu Picchu", 
        "country": "Peru",
        "description": , 
-       "language": "Spanish"
+       "language": "Spanish",
+       "hero": "/assets/"
    },
    {
        "picture":"/assets/paris.jpg",
        "cityName": "Paris",
        "country": "France",
        "description": , 
-       "language": "French"
+       "language": "French",
+       "hero": "/assets/"
    },
    {
        "picture":"/assets/moscow.jpg",
        "cityName": "Moscow",
        "country": "Russia",
        "description": , 
-       "language": "Russian"
+       "language": "Russian",
+       "hero": "/assets/"
    },
    {
        "picture":"/assets/rome.jpg",
        "cityName": "Rome",
        "country": "Italy",
        "description": , 
-       "language": "Italian"
+       "language": "Italian",
+       "hero": "/assets/"
    },
    {
        "picture":"/assets/sidney.jpg",
        "cityName": "Sidney",
        "country": "Australia", 
        "description": , 
-       "language": "English"
+       "language": "English",
+       "hero": "/assets/"
    },
    {
        "picture":"/assets/vatnajokull.jpg",
        "cityName": "Vatnajokull",
        "country": "Iceland", 
        "description": , 
-       "language": "Icelandic"
+       "language": "Icelandic",
+       "hero": "/assets/"
    },
    {
        "picture":"/assets/agra.jpg",
        "cityName": "Agra",
        "country": "India",
        "description": , 
-       "language": "Hindi"
+       "language": "Hindi",
+       "hero": "/assets/"
    }
     {
        "picture":"/assets/",
        "cityName": "Amsterdam",
        "country": "Netherlands",
        "description": , 
-       "language": "Dutch"
+       "language": "Dutch",
+       "hero": "/assets/"
    }
     {
        "picture":"/assets/",
        "cityName": "Buenos Aires",
        "country": "Argentina",
        "description": , 
-       "language": "Spanish"
+       "language": "Spanish",
+       "hero": "/assets/"
    }
     {
        "picture":"/assets/",
        "cityName": "Skopelos",
        "country": "Greece",
        "description": , 
-       "language": "Greek"
+       "language": "Greek",
+       "hero": "/assets/"
    }
 ]

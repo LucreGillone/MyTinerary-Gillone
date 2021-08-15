@@ -8,13 +8,17 @@ const City = (props) => {
     const [city, setCity] = useState({})
     const [loading, setLoading] = useState(true)
 
+    useEffect (() => {
+        window.scrollTo(0,0)
+    }, [])
+
     useEffect(() => {
-        axios.get(`http://localhost:4000/api/city/${props.match.params.id}`)
-        .then((res) => {
-            if (res.data.success) {
-                setCity(res.data.response)
+        axios.get(`http://localhost:4000/api/city/${props.match.params._id}`)
+        .then((response) => {
+            if (response.data.success) {
+                setCity(response.data.response)
             } else {
-                alert(res.data.response)
+                alert(response.data.response)
             }
         })
         .catch ((error) => {
@@ -35,7 +39,7 @@ const City = (props) => {
         <>
             <Nav/>
             <div>
-                <h3>{city.cityName}</h3>
+                <h3>{city.city}</h3>
             </div>
         </>
     )
