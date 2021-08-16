@@ -1,122 +1,122 @@
 const citiesInfo = [
     {
        "picture":"/assets/bali.jpg",
-       "cityName": "Bali",
+       "city": "Bali",
        "country": "Indonesia",
-       "description": , 
+       "description": "Bali, a magical blend of culture, people, nature, activities, weather, nightlife culinary delights it is rated as one of the best travel destinations in the world. Whatever your age, budget or interest there is something great for everyone to explore and discover.", 
        "language": "Indonesian",
-       "hero": "/assets/"
+       "hero": "/assets/bali2.jpg"
    },
    {
        "picture":"/assets/london.jpg",
-       "cityName": "London",
+       "city": "London",
        "country": "England",
-       "description": , 
+       "description": "London, one of the world's most visited cities, England's buzzing capital has so much to offer. Buzzing capital has so much to offer. From iconic landmarks, free museums, flea markets, to musicals and Michelin star restaurants. You will always experience something different in this marvellous city.", 
        "language": "English",
-       "hero": "/assets/"
+       "hero": "/assets/london2.jpg"
    },
    {
        "picture":"/assets/new_york.jpg",
-       "cityName": "New York",
+       "city": "New York",
        "country": "United States",
-       "description": , 
+       "description": "One of the greatest cities in the world, New York is always a whirlwind of activity, with famous sites at every turn and never enough time to see them all. Some people come here to enjoy the Broadway shows; others come specifically to shop and dine; and many come simply to see its wonderful sites.", 
        "language": "English",
-       "hero": "/assets/"
+       "hero": "/assets/new_york2.jpg"
    },
    {
        "picture":"/assets/cairo.jpg",
-       "cityName": "Cairo",
+       "city": "Cairo",
        "country": "Egypt",
-       "description": , 
+       "description": "One of the most famous tourist spots in the world. The capital of Egypt, one of the world's oldest civilizations. It has a rich cultural and historical background, and is one of the seven wonders of the world.", 
        "language": "Arabic",
-       "hero": "/assets/"
+       "hero": "/assets/cairo2.jpg"
    },
    {
        "picture":"/assets/cappadocia.jpg",
-       "cityName": "Cappadocia",
+       "city": "Cappadocia",
        "country": "Turkey", 
-       "description": , 
+       "description": "Cappadocia is a geografically perfect place and belongs to the UNESCO World Heritage List. The region is located in the borders of Göreme Historic National Park, famous fairy chimneys are located in the National Park. Ride a balloon and see Cappadocia from above.", 
        "language": "Tirkish",
-       "hero": "/assets/"
+       "hero": "/assets/cappadocia2.jpg"
    },
    {
        "picture":"/assets/machu_picchu.jpg",
-       "cityName": "Machu Picchu", 
+       "city": "Machu Picchu", 
        "country": "Peru",
-       "description": , 
+       "description": "Visit one of the new seven wonders of the world. This majestic ruins were built by the Inca Empire and are located in the scenic Andes mountain range, surrounded by beatiful cloud forests and mountain scenery. It is a mass visit for all travellers in South America.", 
        "language": "Spanish",
-       "hero": "/assets/"
+       "hero": "/assets/machu_picchu2.jpg"
    },
    {
        "picture":"/assets/paris.jpg",
-       "cityName": "Paris",
+       "city": "Paris",
        "country": "France",
-       "description": , 
+       "description": "The city of Paris has so much to offer visitors, whether its your first time or your forth. you can spend hours roaming its museums, indulging in delicious lunches or diners and exploring its neighbourhoods - from classic and renowned to secretive and hip.", 
        "language": "French",
-       "hero": "/assets/"
+       "hero": "/assets/paris2.jpg"
    },
    {
        "picture":"/assets/moscow.jpg",
-       "cityName": "Moscow",
+       "city": "Moscow",
        "country": "Russia",
-       "description": , 
+       "description": "The capital of Russia is a city of contrast, where soviet architecture mixes with fancy shops. Moscow is a mixture of Asia and Europe, the city's numerous sites, vibrant nightlife and relaxing green parks make it a wonderful holiday destination", 
        "language": "Russian",
-       "hero": "/assets/"
+       "hero": "/assets/moscow2.jpg"
    },
    {
        "picture":"/assets/rome.jpg",
-       "cityName": "Rome",
+       "city": "Rome",
        "country": "Italy",
-       "description": , 
+       "description": "Rome is the capital of Italy, it has a Mediterranean climate with mild winters and warm or hot summers. Rome is a city full of museums, squares, Roman landmarks and other highlights.", 
        "language": "Italian",
-       "hero": "/assets/"
+       "hero": "/assets/rome2.jpg"
    },
    {
-       "picture":"/assets/sidney.jpg",
-       "cityName": "Sidney",
+       "picture":"/assets/sydney.jpg",
+       "city": "Sydney",
        "country": "Australia", 
-       "description": , 
+       "description": "Sydney, the capital of New South Wales, Australia. It is Australia's oldest and largest city. Sydney offers a whole range of great tourist attractions from the world famous Sydney Opera House and Sydney Harbour Bridge to the sandy shores of Bondi Beach.", 
        "language": "English",
-       "hero": "/assets/"
+       "hero": "/assets/sydney2.jpg"
    },
    {
        "picture":"/assets/vatnajokull.jpg",
-       "cityName": "Vatnajokull",
+       "city": "Vatnajokull",
        "country": "Iceland", 
-       "description": , 
+       "description": "Vatnajökull is the largest ice cap in Iceland and the third largest glacier in Europe, covering 8% of the island's landmass. Volcanic activity in the region has occurred on and off throughout the centuries, and many geologists believe that several eruptions are overdue.", 
        "language": "Icelandic",
-       "hero": "/assets/"
+       "hero": "/assets/vatnajokull2.jpg"
    },
    {
        "picture":"/assets/agra.jpg",
-       "cityName": "Agra",
+       "city": "Agra",
        "country": "India",
-       "description": , 
+       "description": "Agra makes for an ideal destination for heritage tour in Uttar Pradesh. The glorious city of Agra is one of the most-visited tourist destinations in India best known as the site of the legendary Taj Mahal, one of the seven wonders of the world.", 
        "language": "Hindi",
-       "hero": "/assets/"
+       "hero": "/assets/agra2.jpg"
    }
     {
-       "picture":"/assets/",
-       "cityName": "Amsterdam",
+       "picture":"/assets/amsterdam.jpg",
+       "city": "Amsterdam",
        "country": "Netherlands",
-       "description": , 
+       "description": "With world-class museums, quirky festivals, vibrant markets, theatre, colourful flea markets, live music, laid-back bars and delightful restaurants, there's never a shortage of things to do in Amsterdam. Explore the treasury of historic Amsterdam from the water.", 
        "language": "Dutch",
-       "hero": "/assets/"
+       "hero": "/assets/amsterdam2.jpg"
    }
     {
-       "picture":"/assets/",
-       "cityName": "Buenos Aires",
+       "picture":"/assets/buenos_aires",
+       "city": "Buenos Aires",
        "country": "Argentina",
-       "description": , 
+       "description": "Buenos Aires is the capital city of Argentina. It is known for its preserved european architecture and rich cultural life. Known as the Paris of the South. Famous for its wolrd-class cuisine, vibrant entertainment, rich historical sites and more. Buenos Aires has something for everyone.", 
        "language": "Spanish",
-       "hero": "/assets/"
+       "hero": "/assets/buenos_aires2.jpg"
    }
     {
-       "picture":"/assets/",
-       "cityName": "Skopelos",
+       "picture":"/assets/skopelos.jpg",
+       "city": "Skopelos",
        "country": "Greece",
-       "description": , 
+       "description": "Eye-catching landscapes; azure waters on golden coasts; traditional Pelion architecture; rugged natural monuments and a pure island atmosphere are all essential elements of the image of this, the greenest island in Greece, more than half of whose territory is covered with virgin pine forest.", 
        "language": "Greek",
-       "hero": "/assets/"
+       "hero": "/assets/skopelos2.jpg"
    }
 ]

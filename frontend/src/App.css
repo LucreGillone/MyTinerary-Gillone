@@ -3,7 +3,7 @@ html * {
     margin: 0;
     box-sizing: border-box;
     /* font-family: 'Roboto', sans-serif; */
-    font-family: 'Literata', serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 header {
@@ -25,7 +25,6 @@ header h1{
     margin-top: 2vmin;
     font-size: 17vmin;
     text-shadow: -1px 3px 7px rgba(255,255,255,0.6);
-
 }
 
 header h2 {
@@ -42,7 +41,7 @@ footer {
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
-    min-height: 20vh;
+    min-height: 15vh;
     width: 100%;
     background-color:rgba(101,103,104,0.379) ;
 }
@@ -95,12 +94,8 @@ div.callToA {
     width: 100%;
     display: flex;
     flex-direction: column;
-    /* background-size: cover;
-    background-position: center; */
     justify-content: center;
     align-items: center;
-    /* background: rgb(101,103,104);
-background: linear-gradient(0deg, rgba(101,103,104,0.379) 0%, rgba(255,255,255,1) 100%); */
 }
 
 button {
@@ -229,21 +224,42 @@ div.cityCards {
     width: 30vw;
     height: 75vh;
     margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
 }
 
 div.boardImg {
     height: 35vh;
     width: 100vw;
     background-position: center;
-    background-size: cover;
-    
+    background-size: cover;   
 }
 
 input {
-   width: 100%;
+   width: 80%;
 }
 
+div.heroCity {
+    height: 50vmin;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+}
 
+div.citiesContainer a {
+    text-decoration: none;
+    color: black;
+}
+
+div.cardsTitles {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    font-size: 10vmin;
+    color: whitesmoke;
+    background-color: rgba(0, 0, 0, 0.342);
+    min-height: 10vmin;
+}
 
 @media screen and (max-width:1200px) {
     div.photo {
@@ -288,6 +304,9 @@ input {
         border-radius: 0%;
     }
 
+    div.cardsTitles {
+        flex-direction: column;
+    }
 }
 
 @media screen and (max-width:769px) {
@@ -314,12 +333,15 @@ input {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        align-items: center;
-        
+        align-items: center;   
     }
 
     div.plane {
         height: auto;
+    }
+
+    div.citiesContainer {
+        width: 90vw;
     }
 }
 

@@ -11,7 +11,7 @@ router.route("/cities")
 router.route("/city/:id")
 .get(citiesControllers.showOneCity)
 .delete(citiesControllers.deleteCity)
-
+.put(citiesControllers.modifyCity)
 
 // router.route("/cities/:id").get(citiesControllers.NOMBREDELCONTROLER)
 

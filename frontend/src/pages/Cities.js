@@ -1,32 +1,32 @@
 import Nav from "../components/NavBar"
 import Footer from "../components/Footer"
-// import InfoCards from "./InfoCards"
+// import InfoCities from "./InfoCities"
 import { useEffect } from "react"
 import {useState} from "react"
 import {Link} from "react-router-dom"
 import axios from "axios"
 
 const Cities = () => {
-    const [cities, setCities] = useState([])
-    const [search, setSearch] = useState("")
+    const [cities, setCities] = useState({
+        allCities: [],
+        filteredCities: []
+    })
     const [loading, setLoading] = useState(true)
-     
-    useEffect (() => {
-        window.scrollTo(0,0)
-    }, [])
 
     useEffect(() => {
+        window.scrollTo(0,0)
         axios.get("http://localhost:4000/api/cities")
         .then((response) => {
-            if (response.data.response) {
-                setCities(response.data.response)
+            if (response.data.success) {
+                setCities({
+                    allCities: response.data.response, 
+                    filteredCities: response.data.response
+                }) 
             } else {
                 alert(response.data.response)
             }
         })
-        .catch ((error) => {
-            alert(error)
-        })
+        .catch ((error) => alert(error))
         .finally(() => setLoading(false))
     // eslint-disable-next-line react-hooks/exhaustive-deps       
     }, [])
@@ -37,44 +37,53 @@ const Cities = () => {
             <h3>Loading...</h3>
         </div>
     }
-    
 
-    const inputHandler = (e) => {
-        setSearch(e.target.value)
+    console.log(cities)
+    const search = (e) => {
+        const inputHandler = e.target.value
+        setCities({
+            ...cities, 
+            filteredCities: cities.allCities.filter((city) => {
+                return (
+                    (city.city.toLowerCase().startsWith(inputHandler.toLowerCase().trim()))
+                )
+        })  
+    })
     }
+    
+    const showCities = cities.filteredCities.length > 0  
+    ?   cities.filteredCities.map((city,index) => {
+        return (
+            <Link to={`/city/${city._id}`} key={cities._id}>
+            <div className="cityCards" key={index}
+            style={{backgroundImage: `url("${city.picture}")`
+            }}>
+                <div className="cardsTitles">
+                    <h3>{city.city}</h3>
+                    <h3>-{city.country}</h3>
+                </div>
+            </div> 
+            </Link>
+        )
+    })
+    : <h3>We couldn't find a match for your search. Try another city!</h3>
     
     return (
         <div className="body">
-
             <Nav/> 
-            
                 <div style={{backgroundImage: `url("/assets/airport_board.jpg")`}} className="boardImg">
                 </div>
-            
-                <input type="text" placeholder="Choose your destination" onChange={inputHandler}/>
+                <input type="text" placeholder="Choose your destination" onChange={search}/>
                 <div className="citiesContainer">
-                {cities.map((city) => 
-
-                   (city.city.toLowerCase().startsWith(search.toLowerCase().trim()) && (
-                    <Link to={`/city/${city._id}`} key={cities._id}>
-                    <div className="cityCards" 
-                    style={{backgroundImage: `url("${city.picture}")`
-                    }}>
-                    <h3>{city.city}</h3>
-                    <h3>{city.country}</h3>
-                    </div> 
-                    </Link>
-                    )
-                
-                ))}  
+                    {showCities}
                 </div>
-           
-            {/* <InfoCards/> */}
             <Footer/>
         </div>
     )
 }
 
-export default Cities
+export default Cities 
 
-    
+
+
+{/* <InfoCities/> */}
