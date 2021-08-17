@@ -16,6 +16,12 @@ header {
     gap: 4rem;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 div.hero {
     /* max-height: 94vh; */
     display:flex;
@@ -90,22 +96,50 @@ nav .active {
     text-decoration: underline;
 }
 
+img.logo {
+    width: 20%;
+}
+
 div.callToA {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 20px 0px;
+}
+
+div.callToA img {
+    width: 10rem;
+    border-radius: 10px;
+}
+
+div.callToA a {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    color: black;
+}
+
+div.callToA a:hover{
+    transform: scale(1, 1.05);
+    border-radius: 10px;
+    box-shadow: 5px 5px 7px 1px rgba(0,0,0,0.75);
+}
+
+div.callToA h4 {
+    position: absolute;
+    align-self: center;
+    margin-top: 1.5rem;
 }
 
 button {
     padding: 0.5rem 1.5rem;
     align-self: center;
     margin: 1.5rem;
-    border-top-left-radius: 5%;
-    border-top-right-radius: 5%;
-    border-bottom-right-radius: 5%;
-    border-bottom-left-radius: 5%;
+    border-radius: 10px;
     background: none;
     border: none;
     font-size: 3.5vmin;
@@ -225,24 +259,40 @@ div.cityCards {
     height: 75vh;
     margin: 0.5rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
 }
 
 div.boardImg {
     height: 35vh;
-    width: 100vw;
+    width: 98.5vw;
     background-position: center;
     background-size: cover;   
 }
 
+div.inputContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+div.inputContainer img {
+    width: 2rem;
+}
+
 input {
    width: 80%;
+   margin: 2rem;
+   height: 2rem;
+   padding-left: 2rem;
+   border: 2px solid black;
+   border-radius: 5px;
 }
 
 div.heroCity {
     height: 50vmin;
     width: 100%;
-    background-position: center;
+    background-position: 50% 60%;
     background-size: cover;
 }
 
@@ -259,6 +309,50 @@ div.cardsTitles {
     color: whitesmoke;
     background-color: rgba(0, 0, 0, 0.342);
     min-height: 10vmin;
+}
+
+div.construction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+main h3 {
+    font-size: 10vmin;
+}
+
+div.construction button{
+    border: 3px solid black;
+    background-color: rgb(255, 239, 13);
+}
+
+div.construction button:hover {
+    border: 3px solid white;
+    background-color: black;
+    color:rgb(235, 235, 74);;
+
+}
+
+div.loading {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div.cityName {
+    background-color: black;
+    padding: 10px;
+    margin: 10px;
+}
+
+div.cityName h3{
+    color: white;
+    border: 3px solid white;
+    padding: 5px 40px;
 }
 
 @media screen and (max-width:1200px) {
@@ -307,6 +401,19 @@ div.cardsTitles {
     div.cardsTitles {
         flex-direction: column;
     }
+
+    img.logo {
+        width: 15%;
+    }
+
+   header {
+       grid-gap: 0;
+       gap: 0;
+   }
+
+   header h1 {
+       font-size: 10vmin;
+   }
 }
 
 @media screen and (max-width:769px) {
@@ -343,6 +450,10 @@ div.cardsTitles {
     div.citiesContainer {
         width: 90vw;
     }
+
+    div.cityCards {
+        width: 40vw;
+    }
 }
 
 @media screen and (min-width:769px) {
@@ -358,6 +469,12 @@ div.cardsTitles {
         height: 4vmin;
     }
 } 
+
+@media screen and (max-width:480px) {
+    div.cityCards {
+        width: 80vw;
+    }
+}
 
 @media screen and (max-width:350px){
     div.callToA h3{

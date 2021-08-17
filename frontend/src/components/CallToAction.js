@@ -4,9 +4,10 @@ const CallToAction = () => {
     return (
         <div className="callToA">
               <h3>Ready to take off?</h3>
-              <Link to="/cities"><button>Click Here!</button></Link>
+              <Link to="/cities"><h4>Click Here</h4><img src="/assets/plane_ticket.png" alt="planeTicket"/>
+              </Link>
               {/* <div> */}
-                  <img src="/assets/ticket.png" alt="planeTicket"/>
+                  
               {/* </div> */}
               
         </div>

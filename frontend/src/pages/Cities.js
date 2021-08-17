@@ -28,9 +28,9 @@ const Cities = () => {
         })
         .catch ((error) => alert(error))
         .finally(() => setLoading(false))
-    // eslint-disable-next-line react-hooks/exhaustive-deps       
+        // eslint-disable-next-line react-hooks/exhaustive-deps  
     }, [])
-    
+     
     if (loading) {
         return <div className="loading">
             <img src="/assets/flying-airplane.gif" alt="plane flying gif"/>
@@ -38,7 +38,6 @@ const Cities = () => {
         </div>
     }
 
-    console.log(cities)
     const search = (e) => {
         const inputHandler = e.target.value
         setCities({
@@ -54,8 +53,8 @@ const Cities = () => {
     const showCities = cities.filteredCities.length > 0  
     ?   cities.filteredCities.map((city,index) => {
         return (
-            <Link to={`/city/${city._id}`} key={cities._id}>
-            <div className="cityCards" key={index}
+            <Link to={`/city/${city._id}`} key={index}>
+            <div className="cityCards" 
             style={{backgroundImage: `url("${city.picture}")`
             }}>
                 <div className="cardsTitles">
@@ -73,7 +72,11 @@ const Cities = () => {
             <Nav/> 
                 <div style={{backgroundImage: `url("/assets/airport_board.jpg")`}} className="boardImg">
                 </div>
+                <div className="inputContainer">
+                    <img src="/assets/plane_icon.png" alt="plane icon"/>
                 <input type="text" placeholder="Choose your destination" onChange={search}/>
+                </div>
+                
                 <div className="citiesContainer">
                     {showCities}
                 </div>

@@ -2,7 +2,7 @@ const City = require("../models/City")
 
 const citiesControllers = {
 
-    showAllCities: async (req, res) => {
+    retrieveAllCities: async (req, res) => {
         try {
             var cities = await City.find()
             res.json({success: true, response: cities})
@@ -11,23 +11,28 @@ const citiesControllers = {
         }    
     },
 
-    showOneCity: async (req, res) => {
+    retrieveOneCity: async (req, res) => {
         try {
             var city = await City.findOne({_id:req.params.id})
             if (city) {
                 res.json({success: true, response: city})
             } else {
-                throw new Error
+                throw new Error()
             }
         } catch(error) {
-            res.json ({success: false, response: error.message})
+            res.json ({success: false, response: "Something went wrong!"})
+            console.log(error)
         }    
     },
 
     deleteCity: async (req, res) => {
        try {
            var deleteCity = await City.findOneAndDelete({_id: req.params.id})
-           res.json({success: true, response: deleteCity})
+            if (city) {
+                res.json({success: true, response: deleteCity})
+            } else {
+                throw new Error()
+            }
        } catch(error) {
             res.json({success: false, response: error.message})
        }      
@@ -52,8 +57,12 @@ const citiesControllers = {
     
     modifyCity: async (req, res) => {
         try{
-            const modifiedCity = await City.findOneAndUpdate({_id: req.params.id}, {...req.body})
-            res.json({success: true, response: modifiedCity})
+            const modifiedCity = await City.findOneAndUpdate({_id: req.params.id}, {...req.body}, {new: true})
+            if (city) {
+                res.json({success: true, response: modifiedCity})
+            } else {
+                throw new Error()
+            }
         } catch(error) {
             res.json({success: false, response: error.message})
         }

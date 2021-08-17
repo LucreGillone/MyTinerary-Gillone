@@ -44,7 +44,7 @@ const items = [
         city: "Paris"
     },
     {
-        picture:"/assets/sidney.jpg",
+        picture:"/assets/sydney.jpg",
         city: "Sydney"
     },
     {
