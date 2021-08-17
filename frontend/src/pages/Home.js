@@ -8,7 +8,7 @@ import CallToAction from "../components/CallToAction"
 
 const Home = () => {
     return (
-        <div className="body">
+        <main>
             <Hero/>
             <Header/>
             <CallToAction/>
@@ -21,7 +21,7 @@ const Home = () => {
             </div>
             
             <Footer/>
-        </div>
+        </main>
     )
 }
 

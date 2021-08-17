@@ -92,8 +92,10 @@ nav.navBar {
 }
 
 nav .active {
-    color: darkblue;
-    text-decoration: underline;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 0.3rem;
 }
 
 img.logo {
@@ -140,15 +142,8 @@ button {
     align-self: center;
     margin: 1.5rem;
     border-radius: 10px;
-    background: none;
-    border: none;
     font-size: 3.5vmin;
     transition:all .5s ease-in-out;
-}
-    
-button:hover {
-    background:rgba(88, 183, 247, 0.397);
-    color: darkblue;
 }
 
 div.photoContainer {
@@ -237,12 +232,24 @@ div.carousel-inner {
 }
 
 div.notFound {
-    width:100%;
-    height: 100%;
+    width:100vw;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+div.notFound button {
+    border: 3px solid black;
+    background-color: rgb(255, 239, 13);
+}
+
+div.notFound button:hover {
+    border: 3px solid white;
+    background-color: black;
+    color:rgb(235, 235, 74);;
+
 }
 
 div.citiesContainer{
@@ -273,16 +280,25 @@ div.inputContainer {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 2rem;
     width: 80%;
 }
 
 div.inputContainer img {
     width: 2rem;
+    margin: 1rem;
 }
 
-input {
+div.inputContainer button {
+    height: 2rem;
+    font-size: 2.5vmin;
+    padding: .5rem .5rem;
+    display: flex;
+    align-items: center;
+}
+
+div.inputContainer input {
    width: 80%;
-   margin: 2rem;
    height: 2rem;
    padding-left: 2rem;
    border: 2px solid black;
@@ -355,34 +371,56 @@ div.cityName h3{
     padding: 5px 40px;
 }
 
-@media screen and (max-width:1200px) {
+@media screen and (max-width:1500px) {
+
+    div.plane {
+        z-index: -1;
+        background-size: 0%;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        background-color: rgba(101, 103, 104, 0.397);
+        margin: 0;
+    }
+
     div.photo {
-        width: 45vmin;
+        margin: 1rem 0;
+        box-shadow: 2px 3px 4px 3px rgba(0,0,0,0.74);
+        border-radius: 0%;
+        margin: 2rem;
+        width: 50vmin;
     }
 
     div.carousel-fade {
         width: 100vw;
     }
 
-    div.plane {
-        margin: 0;
+    div.photos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;   
     }
-}
 
-@media screen and (max-width:1100px) {
-    div.photo {
-        width: 27vmax;
-        margin: 0 4.5vmin
-    }
     div.plane {
-        display: grid;
-        grid-template-columns: repeat(4, 274px);
-        
+        height: auto;
+    }
+
+    div.citiesContainer {
+        width: 90vw;
+    }
+
+    div.cityCards {
+        width: 40vw;
+    }
+
+    img.logo {
+        width: 15%;
     }
 }
 
 @media screen and (max-width:1000px) {
-    div.plane {
+    /* div.plane {
         z-index: -1;
         background-size: 0%;
         padding: 1rem;
@@ -396,14 +434,10 @@ div.cityName h3{
         margin: 1rem 0;
         box-shadow: 2px 3px 5px 6px rgba(0,0,0,0.74);
         border-radius: 0%;
-    }
+    } */
 
     div.cardsTitles {
         flex-direction: column;
-    }
-
-    img.logo {
-        width: 15%;
     }
 
    header {
@@ -430,11 +464,11 @@ div.cityName h3{
         align-items: center;
     }
 
-    div.photo {
+    /* div.photo {
         border-radius: 0%;
-        margin: 2rem;
+        margin: 2rem; */
         /* box-shadow: none; */
-    }
+    /* }
 
     div.photos {
         display: flex;
@@ -453,7 +487,7 @@ div.cityName h3{
 
     div.cityCards {
         width: 40vw;
-    }
+    } */
 }
 
 @media screen and (min-width:769px) {

@@ -15,18 +15,13 @@ const City = (props) => {
         axios.get(`http://localhost:4000/api/city/${props.match.params._id}`)
         .then((response) => {
             if (response.data.success) {
-                response.data.response.length !== 0 
-                ? setCity(response.data.response) 
-                : alert ("Something went wrong!")
-                // if (response.data.response.length !== 0){
-                //     setCity(response.data.response)
-                // } else {alert ("error de front")}
-                
+                setCity(response.data.response)                 
             } else {
                throw new Error()
             }
         })
         .catch ((error) => {
+            console.log(error)
             alert("Something went wrong!")
             props.history.push("/cities")
         })
@@ -51,6 +46,7 @@ const City = (props) => {
                 <div className="cityName">
                     <h3>{city.city}</h3>
                 </div>
+                {/* <p>{city.description}</p> */}
                 <div className="construction">
                     <img src="/assets/under_construction.jpg" alt="under construction"/>
                     <Link to="/cities"><button>Go back to cities</button></Link>

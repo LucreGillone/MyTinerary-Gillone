@@ -66,7 +66,7 @@ const Cities = () => {
         )
     })
     : <h3>We couldn't find a match for your search. Try another city!</h3>
-    
+
     return (
         <div className="body">
             <Nav/> 
@@ -74,9 +74,9 @@ const Cities = () => {
                 </div>
                 <div className="inputContainer">
                     <img src="/assets/plane_icon.png" alt="plane icon"/>
-                <input type="text" placeholder="Choose your destination" onChange={search}/>
+                    <input type="text" placeholder="Choose your destination" onChange={search}/>
+                    {/* <button onClick={handleClick}> A-Z</button> */}
                 </div>
-                
                 <div className="citiesContainer">
                     {showCities}
                 </div>
