@@ -4,10 +4,12 @@ import axios from "axios"
 import {useState} from "react"
 import { useEffect } from "react"
 import {Link} from "react-router-dom"
+import Itinerary from "../components/Itinerary"
 
 const City = (props) => {
  
     const [city, setCity] = useState({})
+    const [itinerary, setItinerary] = useState({})
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -26,6 +28,24 @@ const City = (props) => {
             props.history.push("/cities")
         })
         .finally(() => setLoading(false))
+
+        axios.get(`http://localhost:4000/api/itineraries`)
+        .then((res) => {setItinerary(res.data.response) 
+            // if (res.data.success) {
+            //     setItinerary(res.data.response)  
+                console.log(res.data.response)    
+                console.log(itinerary)           
+            // } 
+            // else {
+            //    console.log (error.message)
+            // }
+        })
+        // .catch ((error) => {
+        //     console.log(error)
+        //     alert("Something went wrong!")
+        //     props.history.push("/cities")
+        // })
+        // .finally(() => setLoading(false))
     // eslint-disable-next-line react-hooks/exhaustive-deps  
     }, [])
 
@@ -50,7 +70,12 @@ const City = (props) => {
                 <div className="construction">
                     <img src="/assets/under_construction.jpg" alt="under construction"/>
                     <Link to="/cities"><button>Go back to cities</button></Link>
+                    
                 </div>
+                    <div>
+                        {itinerary.map((itinerary) => <Itinerary Itinerary={itinerary}/>)}
+                    </div>
+                        
             </main>
             <Footer/>
         </>

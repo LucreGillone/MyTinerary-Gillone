@@ -7,7 +7,7 @@ const citiesControllers = {
             var cities = await City.find()
             res.json({success: true, response: cities})
         } catch (error) {
-            res.json ({success: false, response: error.message})
+            res.json({success: false, response: error.message})
         }    
     },
 

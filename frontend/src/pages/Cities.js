@@ -6,7 +6,7 @@ import {useState} from "react"
 import {Link} from "react-router-dom"
 import axios from "axios"
 
-const Cities = () => {
+const Cities = (props) => {
     const [cities, setCities] = useState({
         allCities: [],
         filteredCities: []
@@ -26,7 +26,11 @@ const Cities = () => {
                 alert(response.data.response)
             }
         })
-        .catch ((error) => alert(error))
+        .catch ((error) => {
+            console.log(error)
+            alert("Something went wrong!")
+            props.history.push("/")
+        })
         .finally(() => setLoading(false))
         // eslint-disable-next-line react-hooks/exhaustive-deps  
     }, [])
@@ -46,10 +50,11 @@ const Cities = () => {
                 return (
                     (city.city.toLowerCase().startsWith(inputHandler.toLowerCase().trim()))
                 )
-        })  
-    })
+        })
+        
+    }) 
     }
-    
+
     const showCities = cities.filteredCities.length > 0  
     ?   cities.filteredCities.map((city,index) => {
         return (
@@ -66,6 +71,7 @@ const Cities = () => {
         )
     })
     : <h3>We couldn't find a match for your search. Try another city!</h3>
+
 
     return (
         <div className="body">
