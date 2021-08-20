@@ -13,6 +13,12 @@ const citiesActions = {
         return (dispatch, getState) => {
         dispatch({type: "FILTER_CITIES", payload: inputValue})
         }
+    },
+
+    getOneCity: (_id) => {
+        return async (dispatch, getState) => {
+        dispatch({type: "GET_ONE_CITY", payload: _id})
+        }
     }
 }
 

@@ -1,76 +1,38 @@
 import  Nav  from "../components/NavBar"
 import Footer from "../components/Footer"
-import axios from "axios"
-import {useState} from "react"
+// import axios from "axios"
+// import {useState} from "react"
 import { useEffect } from "react"
 import {Link} from "react-router-dom"
-import Itinerary from "../components/Itinerary"
+// import Itinerary from "../components/Itinerary"
+import {connect} from "react-redux" 
+import citiesActions from "../redux/actions/citiesActions"
 
 const City = (props) => {
- 
-    const [city, setCity] = useState({})
-    const [itineraries, setItineraries] = useState([])
-    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         window.scrollTo(0,0)
-        axios.get(`http://localhost:4000/api/city/${props.match.params._id}`)
-        .then((response) => {
-            if (response.data.success) {
-                setCity(response.data.response)                 
-            } else {
-               throw new Error()
-            }
-        })
-        .catch ((error) => {
-            console.log(error)
-            alert("Something went wrong!")
-            props.history.push("/cities")
-        })
-        .finally(() => setLoading(false))
-
-        axios.get(`http://localhost:4000/api/itineraries`)
-        .then((res) => {setItineraries(res.data.response) 
-            // if (res.data.success) {
-            //     setItinerary(res.data.response)  
-                console.log(res.data.response)    
-                console.log(itineraries)           
-            // } 
-            // else {
-            //    console.log (error.message)
-            // }
-        })
-        // .catch ((error) => {
-        //     console.log(error)
-        //     alert("Something went wrong!")
-        //     props.history.push("/cities")
-        // })
-        // .finally(() => setLoading(false))
-    // eslint-disable-next-line react-hooks/exhaustive-deps  
+        props.getOneCity(props.match.params._id)
+        console.log(props)
+       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-
-    if (loading) {
-        return <div className="loading">
-            <img src="/assets/flying-airplane.gif" alt="plane flying gif"/>
-            <h3>Loading...</h3>
-        </div>
-    }
+    
 
     return (
         <>
             <Nav/>
             <main>
                 <div className="heroCity" 
-                style={{backgroundImage: `url("${city.hero}")`}}>
+                style={{backgroundImage: `url("${props.selectedCity.hero}")`}}>
                 </div>
                 <div className="cityName">
-                    <h3>{city.city}</h3>
+                    <h3>{props.selectedCity.city}</h3>
                 </div>
                 {/* <p>{city.description}</p> */}
-               
+{/*                
                     <div>
                         {itineraries.map((itineraries, index) => <Itinerary Itineraries={itineraries} key={index}/>)}
-                    </div>
+                    </div> */}
                         
                 <div className="construction">
                     {/* <img src="/assets/under_construction.jpg" alt="under construction"/> */}
@@ -83,4 +45,16 @@ const City = (props) => {
     )
 }
 
-export default City
+
+const mapStateToProps = (state) => {
+    return {
+       selectedCity : state.cities.oneCity
+    }
+}
+
+const mapDispatchToProps = {
+    getOneCity: citiesActions.getOneCity,
+    getAllCities: citiesActions.getAllCities
+} 
+
+export default connect(mapStateToProps, mapDispatchToProps)(City)
