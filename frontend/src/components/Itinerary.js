@@ -4,38 +4,44 @@ const Itinerary = (props) => {
 
     const [collapse, setCollapse] = useState(true)
     console.log(props)
-    console.log(props.Itinerary)
+    console.log(props.Itineraries)
 
-    let itineraryInfo = props.Itinerary
-    console.log(itineraryInfo)
+    let itinerariesInfo = props.Itineraries
+    console.log(itinerariesInfo)
 
     const toggleInfo = () => {
         setCollapse(!collapse)
     }
+
+    const hashtags = itinerariesInfo.hashtags.map((hashtag, index) => {
+        return (
+            <p key={index}>{"#" + hashtag}</p>
+        )
+    })
     
     return (
         <div className="itinerary">
-            <h3>{itineraryInfo.itineraryTitle}</h3>
+            <h3>{itinerariesInfo.itineraryTitle}</h3>
             <div className="itineraryContent">
                 <div className="itineraryInfo">
                     <div className="author">
-                        <div className="authorPicture" style={{backgroundImage: `url("${itineraryInfo.userPicture}")`}}></div>
-                        <h4>{itineraryInfo.userName}</h4>
+                        <div className="authorPicture" style={{backgroundImage: `url("${itinerariesInfo.userPicture}")`}}></div>
+                        <h4>{itinerariesInfo.userName}</h4>
                     </div>
-                    <p>{itineraryInfo.description}</p>
-                    <div className="infoContainer">
-                        <p>{"💵".repeat(parseInt(itineraryInfo.price))}</p>
-                        <p>{"🕓" + itineraryInfo.duration + "hs"}</p>
-                        <p>{"🤍" + itineraryInfo.likes}</p>
+                    <p>{itinerariesInfo.description}</p>
+                    <div className="iconContainer">
+                        <p>{"💰".repeat(parseInt(itinerariesInfo.price))}</p>
+                        <p>{"🕓" + itinerariesInfo.duration + "hs"}</p>
+                        <p>{"🤍" + itinerariesInfo.likes}</p>
                     </div>
-                    <div className="hashtags">{itineraryInfo.hashtags}</div>
+                    <div className="hashtags">{hashtags}</div>
                 </div>
             
-                <div className="cityPicture" style={{backgroundImage: `url("${itineraryInfo.src}")`}}></div>
+                <div className="cityPicture" style={{backgroundImage: `url("${itinerariesInfo.src}")`}}></div>
             </div>
-            
-            <button onClick={toggleInfo}>{collapse ? " View More" : "View Less"}</button>
             {!collapse ? <h5>Under construction</h5> : null}
+            <button className="viewMore" onClick={toggleInfo}>{collapse ? " View More" : "View Less"}</button>
+           
 
         </div>
     )

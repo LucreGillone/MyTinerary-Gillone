@@ -9,7 +9,7 @@ import Itinerary from "../components/Itinerary"
 const City = (props) => {
  
     const [city, setCity] = useState({})
-    const [itinerary, setItinerary] = useState({})
+    const [itineraries, setItineraries] = useState([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -30,11 +30,11 @@ const City = (props) => {
         .finally(() => setLoading(false))
 
         axios.get(`http://localhost:4000/api/itineraries`)
-        .then((res) => {setItinerary(res.data.response) 
+        .then((res) => {setItineraries(res.data.response) 
             // if (res.data.success) {
             //     setItinerary(res.data.response)  
                 console.log(res.data.response)    
-                console.log(itinerary)           
+                console.log(itineraries)           
             // } 
             // else {
             //    console.log (error.message)
@@ -67,15 +67,16 @@ const City = (props) => {
                     <h3>{city.city}</h3>
                 </div>
                 {/* <p>{city.description}</p> */}
-                <div className="construction">
-                    <img src="/assets/under_construction.jpg" alt="under construction"/>
-                    <Link to="/cities"><button>Go back to cities</button></Link>
-                    
-                </div>
+               
                     <div>
-                        {itinerary.map((itinerary) => <Itinerary Itinerary={itinerary}/>)}
+                        {itineraries.map((itineraries, index) => <Itinerary Itineraries={itineraries} key={index}/>)}
                     </div>
                         
+                <div className="construction">
+                    {/* <img src="/assets/under_construction.jpg" alt="under construction"/> */}
+                    <Link to="/cities"><button>Go back to cities</button></Link>
+                    
+                </div> 
             </main>
             <Footer/>
         </>

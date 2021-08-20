@@ -26,7 +26,7 @@ const itinerariesControllers = {
         try {
             var deleteItinerary = await Itinerary.findOneAndDelete({_id: req.params.id})
             if (itinerary) {
-                res.json({succes: true, response: deleteItinerary})
+                res.json({success: true, response: deleteItinerary})
             } 
             else {
                 throw new Error()
