@@ -1,18 +1,35 @@
 import Nav from "../components/NavBar"
 import Footer from "../components/Footer"
 import { useEffect } from "react"
-// import {useState} from "react"
+import {useState} from "react"
 import {Link} from "react-router-dom"
 import {connect} from "react-redux" 
 import citiesActions from "../redux/actions/citiesActions"
 
 const Cities = (props) => {
-
+    const [loading, setLoading] = useState(true)
     useEffect(() => {
         window.scrollTo(0,0)
-        props.getAllCities()
+        async function getAllCities() {
+            try{
+                await props.getAllCities() 
+            } catch (err){
+                alert (err)
+                props.history.push("/")
+                return false
+            }
+            setLoading(false)
+        }
+        getAllCities()
        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
+    if (loading) {
+        return <div className="loading">
+            <img src="/assets/flying-airplane.gif" alt="plane flying gif"/>
+            <h3>Loading...</h3>
+        </div>
+    }
 
     const showCities = props.infoCities.length > 0  
     ?   props.infoCities.map((city,index) => {
@@ -62,7 +79,8 @@ const Cities = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        infoCities: state.cities.allCities
+        infoCities: state.cities.filteredCities
+    
     }
 }
 
