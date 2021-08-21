@@ -1,9 +1,14 @@
-const itinerariesReducers = (state={itinearyByCityId:[]}, action) => {
+const itinerariesReducers = (state={allItineraries:[], itinearyByCityId:[]}, action) => {
     switch(action.type){
-        case "GET_ITINERARY_BY_CITYID": 
+        case "GET_ALL_ITINERARIES": 
             return {
                 ...state, 
-                itinearyByCityId: action.payload
+                allItineraries: action.payload
+            }
+        case "GET_ITINERARY_BY_CITYID": 
+            return {
+                ...state,
+                cityItineraries: state.allItineraries.find((itinerary) => itinerary.cityId === action.payload)
             }
         default: 
         return (

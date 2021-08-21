@@ -1,18 +1,18 @@
 import  Nav  from "../components/NavBar"
 import Footer from "../components/Footer"
-// import axios from "axios"
-// import {useState} from "react"
 import { useEffect } from "react"
 import {Link} from "react-router-dom"
-// import Itinerary from "../components/Itinerary"
+import Itinerary from "../components/Itinerary"
 import {connect} from "react-redux" 
 import citiesActions from "../redux/actions/citiesActions"
+import itinerariesActions from "../redux/actions/itinerariesAction"
 
 const City = (props) => {
 
     useEffect(() => {
         window.scrollTo(0,0)
         props.getOneCity(props.match.params._id)
+        props.getItineraryByCity(props.match.params.cityId)
         console.log(props)
        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
@@ -29,10 +29,10 @@ const City = (props) => {
                     <h3>{props.selectedCity.city}</h3>
                 </div>
                 {/* <p>{city.description}</p> */}
-{/*                
+               
                     <div>
-                        {itineraries.map((itineraries, index) => <Itinerary Itineraries={itineraries} key={index}/>)}
-                    </div> */}
+                        {props.cityItineraries.map((itineraries, index) => <Itinerary Itineraries={itineraries} key={index}/>)}
+                    </div>
                         
                 <div className="construction">
                     {/* <img src="/assets/under_construction.jpg" alt="under construction"/> */}
@@ -45,16 +45,18 @@ const City = (props) => {
     )
 }
 
-
 const mapStateToProps = (state) => {
     return {
-       selectedCity : state.cities.oneCity
+       selectedCity : state.cities.oneCity,
+       cityItineraries: state.itineraries.cityItineraries
     }
 }
 
 const mapDispatchToProps = {
     getOneCity: citiesActions.getOneCity,
-    getAllCities: citiesActions.getAllCities
+    getAllCities: citiesActions.getAllCities,
+    getAllItineraries: itinerariesActions.getAllItineraries,
+    getItineraryByCity: itinerariesActions.getItineraryByCity
 } 
 
 export default connect(mapStateToProps, mapDispatchToProps)(City)

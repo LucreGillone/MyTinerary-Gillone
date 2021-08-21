@@ -13,7 +13,7 @@ const itinerariesControllers = {
 
     retrieveItinerariesOfOneCity: async (req, res) => {
         try{
-            let cityItineraries = await Itinerary.find({cityId: req-params.id})
+            let cityItineraries = await Itinerary.find({cityId: req.params.cityId})
             res.json({success: true, response: cityItineraries})
         } catch(error) {
             res.json({success: false, response: error.message})

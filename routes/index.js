@@ -18,11 +18,11 @@ router.route("/itineraries")
 .get(itinerariesControllers.retrieveAllItineraries)
 .post(itinerariesControllers.addItinerary)
 
-router.route("/itineraries/:id")
-.get(itinerariesControllers.retrieveItinerariesById)
+router.route("/itineraries/:cityId")
+.get(itinerariesControllers.retrieveItinerariesOfOneCity)
 
 router.route("/itinerary/:id")
-.get(itinerariesControllers.retrieveItinerariesOfOneCity)
+.get(itinerariesControllers.retrieveItinerariesById)
 .delete(itinerariesControllers.deleteItinerary)
 .put(itinerariesControllers.modifyItinerary)
 
