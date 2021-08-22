@@ -12,11 +12,9 @@ const City = (props) => {
     useEffect(() => {
         window.scrollTo(0,0)
         props.getOneCity(props.match.params._id)
-        props.getItineraryByCity(props.match.params.cityId)
-        console.log(props)
+        props.getItineraryByCity(props.match.params._id)
        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-    
 
     return (
         <>
@@ -55,7 +53,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
     getOneCity: citiesActions.getOneCity,
     getAllCities: citiesActions.getAllCities,
-    getAllItineraries: itinerariesActions.getAllItineraries,
     getItineraryByCity: itinerariesActions.getItineraryByCity
 } 
 
