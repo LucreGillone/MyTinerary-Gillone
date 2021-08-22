@@ -1,12 +1,8 @@
 const InfoCities = () => {
     return (
-        <div className="citiesContainer">
-            {citiesInfo.map((city) => 
-            <div className="cityCards"
-            style={{backgroundImage: `url("${city.picture}")`}}>
-                <h3>{city.city}</h3>
-             </div>
-            )}
+        <div className="emptyCity">
+            <h3>Sorry! There are no itineraries for this city yet. Check out later!</h3>
+            <button>Go back to cities</button>
         </div>
     )
 }

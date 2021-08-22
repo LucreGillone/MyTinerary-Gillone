@@ -1,20 +1,32 @@
 import  Nav  from "../components/NavBar"
 import Footer from "../components/Footer"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import {Link} from "react-router-dom"
 import Itinerary from "../components/Itinerary"
 import {connect} from "react-redux" 
 import citiesActions from "../redux/actions/citiesActions"
 import itinerariesActions from "../redux/actions/itinerariesAction"
+import NoItineraries from "../components/noItineraries"
 
 const City = (props) => {
+
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         window.scrollTo(0,0)
         props.getOneCity(props.match.params._id)
         props.getItineraryByCity(props.match.params._id)
+        setLoading(false)
+        console.log(props.cityItineraries)
        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
+    if (loading) {
+        return <div className="loading">
+            <img src="/assets/flying-airplane.gif" alt="plane flying gif"/>
+            <h3>Loading...</h3>
+        </div>
+    }
 
     return (
         <>
@@ -26,12 +38,12 @@ const City = (props) => {
                 <div className="cityName">
                     <h3>{props.selectedCity.city}</h3>
                 </div>
-                {/* <p>{city.description}</p> */}
-               
-                    <div>
-                        {props.cityItineraries.map((itineraries, index) => <Itinerary Itineraries={itineraries} key={index}/>)}
-                    </div>
-                        
+                <div className="cityDescription">{props.selectedCity.description}</div>
+                <div>
+                    {props.cityItineraries.length !==0 
+                    ? props.cityItineraries.map((itineraries, index) => <Itinerary Itineraries={itineraries} key={index}/>)
+                    : <NoItineraries/>}
+                </div>
                 <div className="construction">
                     {/* <img src="/assets/under_construction.jpg" alt="under construction"/> */}
                     <Link to="/cities"><button>Go back to cities</button></Link>

@@ -3,11 +3,8 @@ import {useState} from "react"
 const Itinerary = (props) => {
 
     const [collapse, setCollapse] = useState(true)
-    console.log(props)
-    console.log(props.Itineraries)
 
     let itinerariesInfo = props.Itineraries
-    console.log(itinerariesInfo)
 
     const toggleInfo = () => {
         setCollapse(!collapse)

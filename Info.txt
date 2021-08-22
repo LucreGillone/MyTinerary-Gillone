@@ -124,5 +124,76 @@ const citiesInfo = [
 Itineraries = 
 
 {
-    
+     {
+      "likes": 0,
+      "hashtags": [
+        "brooklyn",
+        "walk",
+        "newYork"
+      ],
+      "comments": [],
+      "_id": "612064a922a8fa3eac9ae629",
+      "itineraryTitle": "Brooklyn Bridge Walking Tour",
+      "userName": "Emma Jhonson",
+      "userPicture": "/assets/profile1.jpg",
+      "description": "This tour is ideal if you like long walks, combine an introduction to Manhattan with a walk across the Brooklyn Bridge. Walk from Manhattan to the Brooklyn Bridge Park and cross the Brooklyn Bridge.",
+      "price": 2,
+      "duration": 4,
+      "src": "/assets/brooklyn_bridge.jpg",
+      "cityId": "6119a5da5b248d0c786803ec",
+      "season": "spring/summer",
+      "__v": 0
+    },
+    {
+      "likes": 0,
+      "hashtags": [
+        "rooftop",
+        "newYork",
+        "sunset"
+      ],
+      "comments": [],
+      "_id": "61206af722a8fa3eac9ae62c",
+      "itineraryTitle": "From the Heights",
+      "userName": "Matt Parker",
+      "userPicture": "/assets/profile2.jpg",
+      "description": "Take your New York City nightlife experience to new heights during this evening excursion to some of the city’s best rooftop bars and lounges.",
+      "price": 4,
+      "duration": 4,
+      "src": "/assets/rooftop_ny.jpg",
+      "cityId": "6119a5da5b248d0c786803ec",
+      "season": "spring/summer",
+      "__v": 0
+    },
+
+    LONDON 
+
+    {
+	"itineraryTitle": "Food Markets Tour",
+    "userName": "Brittany Sheffield",
+    "userPicture": "/assets/profile3.jpg",
+    "description": "If you're a foodie, you'd be remiss not to book a food tour while in London. To really dig deep into London's eclectic culinary scene, a tour is the only way to go. Luckily, the city offers plenty.",
+    "price": 2,
+    "duration": 7,
+    "hashtags": ["food", "market", "London", "foodporn"],
+    "comments": [],
+	"src": "/assets/london_market.jpg",
+	"cityId": "6119a5a35b248d0c786803e9",
+	"season": "all seasons"
+	
+    }, 
+
+    {
+	"itineraryTitle": "A Pinch of London",
+    "userName": "Jhon Dorchester",
+    "userPicture": "/assets/profile4.jpg",
+    "description": "London is a big place with a lot to see and do, so you’re not going to be able to get everywhere. Make the most of your trip by visiting the unmissable sights of the British capital.",
+    "price": 4,
+    "duration":4,
+    "hashtags": ["london", "tour", "europe"],
+    "comments": [],
+	"src": "/assets/london_eye.jpg",
+	"cityId": "6119a5a35b248d0c786803e9",
+	"season": "spring/summer"
+	
+}
 }
