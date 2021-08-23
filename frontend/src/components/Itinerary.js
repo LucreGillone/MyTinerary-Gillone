@@ -36,8 +36,11 @@ const Itinerary = (props) => {
             
                 <div className="cityPicture" style={{backgroundImage: `url("${itinerariesInfo.src}")`}}></div>
             </div>
-            {!collapse ? <h5>Under construction</h5> : null}
-            <button className="viewMore" onClick={toggleInfo}>{collapse ? " View More" : "View Less"}</button>
+            <div className="viewMore">
+                {!collapse ? <h5>Under construction</h5> : null}
+                <button className="viewMore" onClick={toggleInfo}>{collapse ? " View More" : "View Less"}</button>
+           
+            </div>
            
 
         </div>

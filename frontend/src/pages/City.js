@@ -9,11 +9,14 @@ import itinerariesActions from "../redux/actions/itinerariesAction"
 import NoItineraries from "../components/noItineraries"
 
 const City = (props) => {
-
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         window.scrollTo(0,0)
+        if(props.allCities.length === 0){
+            props.history.push("/cities")
+            return false
+        }
         props.getOneCity(props.match.params._id)
         props.getItineraryByCity(props.match.params._id)
         setLoading(false)
@@ -58,7 +61,8 @@ const City = (props) => {
 const mapStateToProps = (state) => {
     return {
        selectedCity : state.cities.oneCity,
-       cityItineraries: state.itineraries.cityItineraries
+       cityItineraries: state.itineraries.cityItineraries,
+       allCities: state.cities.filteredCities
     }
 }
 

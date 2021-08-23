@@ -2,7 +2,6 @@ html * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    /* font-family: 'Roboto', sans-serif; */
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -23,7 +22,6 @@ main {
 }
 
 div.hero {
-    /* max-height: 94vh; */
     display:flex;
 }
 
@@ -52,6 +50,10 @@ footer {
     background-color:rgba(101,103,104,0.379) ;
 }
 
+footer p {
+    margin-bottom: 1rem;
+}
+
 div.iconsRef img, div.socialMediaIcons img {
     width: 4vmin;
     height: 4vmin;
@@ -73,7 +75,6 @@ div.body {
     width: 100%;
     text-align: center;
     font-weight: bold;
-    /* text-shadow: -1px 2px 2px rgba(0,0,0,0.6); */
     border-bottom: 2px solid lightgray ;
 }
 
@@ -81,6 +82,7 @@ nav.navBar {
     display: flex;
     justify-content: space-evenly;
     width: 100%;
+    align-items: center;
     
 }
 
@@ -114,6 +116,7 @@ div.callToA {
 div.callToA img {
     width: 10rem;
     border-radius: 10px;
+    margin-top: 2rem;
 }
 
 div.callToA a {
@@ -134,7 +137,7 @@ div.callToA a:hover{
 div.callToA h4 {
     position: absolute;
     align-self: center;
-    margin-top: 1.5rem;
+    margin-top: 3.5rem;
 }
 
 button {
@@ -162,17 +165,16 @@ div.photo {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 21vw;
+    width: 23vw;
     height: 57vh;
     background-position: center;
     background-size: cover;
     border-radius: 35%;
-    margin: 2.5rem;
+    margin: 2.6rem;
 }
 
 div.carousel-fade {
-    width: 98vw;
-
+    width: 100%;
 }
 
 div.cityNames {
@@ -336,7 +338,7 @@ div.construction {
 }
 
 main h3 {
-    font-size: 10vmin;
+    font-size: 7vmin;
 }
 
 div.construction button{
@@ -376,6 +378,7 @@ div.cityDescription {
     width: 80%; 
     text-align: center;
     margin-top: 3.5rem;
+    font-size: 3vmin;
 }
 
 div.itinerary {
@@ -415,9 +418,10 @@ div.authorPicture {
     border-radius: 100%;
     width: 100px;
     height: 100px;
-    background-size: 270%;
+    background-size: contain;
     background-position-x: center;
     background-position-y: 26%;
+    background-repeat: no-repeat;
 }
 
 div.cityPicture {
@@ -429,7 +433,7 @@ div.cityPicture {
 }
 
 div.itinerary h3{
-    font-size: 10vmin;
+    font-size: 8vmin;
     background-color: black;
     width: 100%;
     text-align: center;
@@ -453,20 +457,35 @@ div.hashtags {
     justify-content: space-between;
 }
 
+
 button.viewMore:hover {
     border: 2px solid whitesmoke;
     background-color: rgb(168, 168, 164);
 }
 
-/* @media screen and (min-width: 1500px) {
-    div.input input {
-        height: 50px;
-    }
-} */
-
 @media screen and (max-width:1500px) {
+    div.cityCards {
+        width: 30vw;
+    }
 
+    img.logo {
+        width: 15%;
+    }
+}
+
+@media screen and (max-width: 1440px) {
     div.plane {
+        height: auto;
+    } 
+
+    div.photo {
+        margin: 1.6rem;
+        border-radius: 0%;
+    }
+}
+
+@media screen and (max-width:1024px) {
+     div.plane {
         z-index: -1;
         background-size: 0%;
         padding: 1rem;
@@ -480,7 +499,7 @@ button.viewMore:hover {
         margin: 1rem 0;
         box-shadow: 2px 3px 4px 3px rgba(0,0,0,0.74);
         border-radius: 0%;
-        margin: 2rem;
+        margin: 1.5rem;
         width: 50vmin;
     }
 
@@ -495,37 +514,6 @@ button.viewMore:hover {
         align-items: center;   
     }
 
-    div.plane {
-        height: auto;
-    }
-
-    div.cityCards {
-        width: 30vw;
-    }
-
-    img.logo {
-        width: 15%;
-    }
-
-}
-
-@media screen and (max-width:1000px) {
-    /* div.plane {
-        z-index: -1;
-        background-size: 0%;
-        padding: 1rem;
-        display: flex;
-        justify-content: center;
-        background-color: rgba(101, 103, 104, 0.397);
-        
-    }
-
-    div.photo {
-        margin: 1rem 0;
-        box-shadow: 2px 3px 5px 6px rgba(0,0,0,0.74);
-        border-radius: 0%;
-    } */
-
     div.cardsTitles {
         flex-direction: column;
     }
@@ -539,14 +527,22 @@ button.viewMore:hover {
        font-size: 10vmin;
    }
 
-   div.citiesContainer {
-    width: 90vw;
-    }
+   .carousel-control-next, .carousel-control-prev {
+       top: 0;
+   }
 }
 
 @media screen and (max-width:769px) {
+    div.navBar img {
+        width: 25px;
+    }
+    
     video {
         height:50%;
+    }
+
+    div.title {
+        padding: 0 3rem;
     }
 
     header {
@@ -558,49 +554,67 @@ button.viewMore:hover {
         align-items: center;
     }
 
-    /* div.photo {
-        border-radius: 0%;
-        margin: 2rem; */
-        /* box-shadow: none; */
-    /* }
-
-    div.photos {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;   
+    div.itineraryContent {
+        flex-direction: column-reverse;
+        align-items: center;
     }
 
-    div.plane {
-        height: auto;
+    div.cityPicture {
+        width: 70vmin;
+        margin-bottom: 2rem;
     }
 
-    div.citiesContainer {
-        width: 90vw;
+    div.itineraryInfo {
+        width: 75%;
+        gap: 1rem; 
+    }
+
+    div.viewMore {
+        margin-top: 1rem;
+    }
+
+    div.inputContainer button {
+        font-size: 2vmin;
+        width: 3rem;
     }
 
     div.cityCards {
-        width: 40vw;
-    } */
+        width: 45vw;
+    }
 }
 
 @media screen and (min-width:769px) {
-    /* div.callToA {
-        position: absolute;
-        top: 55vmin;
-        background-color: none;
-        background: none;
-    } */
-
     nav.navBar img {
         width: 4vmin;
         height: 4vmin;
     }
 } 
 
-@media screen and (max-width:480px) {
+@media screen and (max-width:500px) {
     div.cityCards {
         width: 80vw;
+    }
+
+    div.navBar {
+        align-items: center;
+    }
+
+    div.title {
+        margin-top: 0.5rem;
+    }
+
+    div.inputContainer {
+        margin: 0;
+        width: 100%;
+        padding-left: 1rem;
+    }
+
+    div.cityPicture {
+        width: 15rem;
+    }
+
+    div.authorPicture { 
+        border-radius: 10px;
     }
 }
 

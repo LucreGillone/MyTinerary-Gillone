@@ -52,7 +52,15 @@ const Cities = (props) => {
     const search = (e) => {
         props.filterCities(e.target.value)
     }
-    
+
+    // const alphabeticalOrder = JSON.parse(JSON.stringify(props.infoCities))//json stringify
+
+    // const alphabetical = () => {
+    //     alphabeticalOrder.sort(function (a,b) {
+    //         return a.alphabeticalOrder.city.localeCompare(b.alphabeticalOrder.city)
+    //     })       
+    // } 
+    // console.log(alphabeticalOrder)
 
     return (
         <div className="body">
@@ -62,11 +70,7 @@ const Cities = (props) => {
                         <div className="inputContainer">
                         <img src="/assets/plane_icon.png" alt="plane icon"/>
                        <input type="text" placeholder="Choose your destination" onChange={search}/>
-                       {/* <button onClick={alphabetical}>A-Z</button>
-                        {alphabeticalOrder
-                        ? <h2>orden alfa</h2>
-                        : <h2> como esta</h2>
-                        } */}
+                       {/* <button onClick={alphabetical}>A-Z</button> */}
                     </div>
                     <div className="citiesContainer">
                         {showCities}
@@ -80,7 +84,6 @@ const Cities = (props) => {
 const mapStateToProps = (state) => {
     return {
         infoCities: state.cities.filteredCities
-    
     }
 }
 
