@@ -1,9 +1,12 @@
 import NavBar from "../components/NavBar"
 import {useState} from "react"
-import axios from "axios"
+// import axios from "axios"
 import {Link} from "react-router-dom"
+import Swal from 'sweetalert2'
+import {connect} from "react-redux"
+import usersActions from "../redux/actions/usersActions"
 
-const LogIn = () => {
+const LogIn = (props) => {
     const [logUser, setLogUser] = useState ({
         email: "", 
         password: "",
@@ -17,19 +20,44 @@ const LogIn = () => {
             
         })
     }
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
     
 
     const submitForm = () => {
         let info = Object.values(logUser).some((infoUser) => infoUser === "")
         if (info) {
-            alert("There are fields incomplete, please complete them.")
+            Toast.fire({
+                icon: 'error',
+                title: 'There are fields incomplete, please complete them.'
+              })
+            // alert("There are fields incomplete, please complete them.")
         } else {
-            axios.post("http://localhost:4000/api/user/logIn", logUser)
+            props.logUser(logUser)
+            // axios.post("http://localhost:4000/api/user/logIn", logUser)
         .then((response) => {
             if (!response.data.success){
-                alert(response.data.response)
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Email and/or password incorrect'
+                  })
+                // alert(response.data.response)
             } else {
-                alert("Welcome back!")
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Welcome back!'
+                  })
+                // alert("Welcome back!")
             }
         })        
         .catch((error) => console.log(error))//catchear comunicacion con BD
@@ -60,4 +88,8 @@ const LogIn = () => {
     )
 }
 
-export default LogIn 
+const mapDispatchToProps = {
+    logUser: usersActions.logUser
+}
+
+export default connect(null, mapDispatchToProps)(LogIn)

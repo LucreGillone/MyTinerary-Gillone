@@ -21,7 +21,7 @@ const App = () => {
             <Route path="/notFound" component={Error404}/>
             <Route path="/signUp" component={SignUp}/>
             <Route path="/logIn" component={LogIn}/>
-            <Redirect to="/notFound"/>
+            <Redirect to="/"/>
         </Switch>
     </BrowserRouter>
   )
