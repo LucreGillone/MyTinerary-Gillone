@@ -457,10 +457,16 @@ div.hashtags {
     justify-content: space-between;
 }
 
-
 button.viewMore:hover {
     border: 2px solid whitesmoke;
     background-color: rgb(168, 168, 164);
+}
+
+form fieldset{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 @media screen and (max-width:1500px) {

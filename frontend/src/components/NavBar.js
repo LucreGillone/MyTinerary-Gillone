@@ -6,8 +6,8 @@ const Nav = () => {
             <NavLink exact to="/"><p>Home</p></NavLink>
             <NavLink to="/cities"><p>Cities</p></NavLink>
             <img src ="/assets/person-circle.svg" alt="userIcon"/>
-            <NavLink to="/notFound"><p>Sign up</p></NavLink>
-            <NavLink to="/notFound"><p>Log in</p></NavLink>
+            <NavLink to="/signUp"><p>Sign up</p></NavLink>
+            <NavLink to="/logIn"><p>Log in</p></NavLink>
         </nav>
     )
 }

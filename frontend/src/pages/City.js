@@ -6,7 +6,7 @@ import Itinerary from "../components/Itinerary"
 import {connect} from "react-redux" 
 import citiesActions from "../redux/actions/citiesActions"
 import itinerariesActions from "../redux/actions/itinerariesAction"
-import NoItineraries from "../components/noItineraries"
+import NoItineraries from "../components/NoItineraries"
 
 const City = (props) => {
     const [loading, setLoading] = useState(true)
@@ -20,7 +20,6 @@ const City = (props) => {
         props.getOneCity(props.match.params._id)
         props.getItineraryByCity(props.match.params._id)
         setLoading(false)
-        console.log(props.cityItineraries)
        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
