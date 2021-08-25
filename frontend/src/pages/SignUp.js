@@ -1,6 +1,7 @@
 import NavBar from "../components/NavBar"
 import {useEffect, useState} from "react"
 import axios from "axios"
+import {Link} from "react-router-dom"
 
 const SignUp = () => {
     const [countries, setCountries] = useState ([])
@@ -25,7 +26,7 @@ const SignUp = () => {
 
     }, [])
 
-    console.log(countries)
+
    
     const inputHandler = (e) => {
         setNewUser({
@@ -55,8 +56,9 @@ const SignUp = () => {
 
     return (
         <>
+        <main>
             <NavBar/>
-            <main>
+            <div className="userForm">
                 <h2>Create an Account!</h2>
                 <form>
                         <input type="text" onChange={inputHandler}  name="firstName" placeholder="First Name" autoComplete="nope"/>
@@ -73,7 +75,13 @@ const SignUp = () => {
                         <input type="password" onChange={inputHandler} name="password" placeholder="Password" autoComplete="nope"/>
                 </form>
                 <button onClick={submitForm}>Sign Up</button>
-            </main>
+                <span className="logIn/signUp">
+                    <h5>Already have an account?</h5>
+                    <Link to="/logIn"><h5>Log In</h5></Link>
+                </span>
+            </div>
+            
+        </main>
             
         </>
     )
