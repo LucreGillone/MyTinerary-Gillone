@@ -43,9 +43,11 @@ const LogIn = (props) => {
               })
             // alert("There are fields incomplete, please complete them.")
         } else {
+            console.log(props)
             props.logUser(logUser)
             // axios.post("http://localhost:4000/api/user/logIn", logUser)
         .then((response) => {
+            
             if (!response.data.success){
                 Toast.fire({
                     icon: 'error',

@@ -4,7 +4,6 @@ import Hero from "../components/Hero"
 import Footer from "../components/Footer"
 import CarouselComp from "../components/Carousel"
 import CallToAction from "../components/CallToAction"
-// import InfoCards from "../components/InfoCards"
 
 const Home = () => {
     return (

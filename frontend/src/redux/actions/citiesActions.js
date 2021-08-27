@@ -1,9 +1,15 @@
 import axios from "axios"
 
 const citiesActions = {
-    getAllCities: () => {
+    getAllCities: (token) => {
+        console.log(token)
         return async (dispatch, getState) => {
-            let response = await axios.get("http://localhost:4000/api/cities")
+            let response = await axios.get("http://localhost:4000/api/cities", {
+                headers: {
+                    Authorization: "Bearer "+ token,
+                }
+            })
+            
             if (!response.data.success) {
                 throw new Error("Issues between backend & database")
             }

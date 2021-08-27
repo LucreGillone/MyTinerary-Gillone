@@ -85,9 +85,12 @@ nav.navBar {
     justify-content: space-evenly;
     width: 100%;
     align-items: center;
-    
 }
 
+div.user {
+    display: flex;
+    align-items: center;   
+}
 .navBar a {
     text-decoration: none;
     color: black;
@@ -100,6 +103,10 @@ nav .active {
     color: white;
     border-radius: 5px;
     padding: 0.3rem;
+}
+
+.navBar p {
+    font-size: 3vmin;
 }
 
 img.logo {

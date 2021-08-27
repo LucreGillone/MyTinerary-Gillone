@@ -12,9 +12,10 @@ const Cities = (props) => {
         window.scrollTo(0,0)
         async function getAllCities() {
             try{
-                await props.getAllCities() 
+                await props.getAllCities(props.token) 
+                console.log(props)
             } catch (err){
-                alert (err)
+                alert ("you can't access cities if you don't log in")
                 props.history.push("/")
                 return false
             }
@@ -22,7 +23,7 @@ const Cities = (props) => {
         }
         getAllCities()
        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [props.token])
 
     if (loading) {
         return <div className="loading">
@@ -83,7 +84,9 @@ const Cities = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        infoCities: state.cities.filteredCities
+        infoCities: state.cities.filteredCities,
+        token: state.users.token,
+        name: state.users.name
     }
 }
 

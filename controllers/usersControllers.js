@@ -12,7 +12,8 @@ const usersControllers = {
             let repeatedUser = await User.findOne({email: email})
             if (repeatedUser) throw new Error ("Someone has alreay signed up with this email")
             await newUser.save()
-            res.json({success: true, response: newUser})
+            const token = jwt.sign({...newUser}, process.env.SECRETORKEY)
+            res.json({success: true, response: {firstName: newUser.firstName, src: newUser.src, token}, error: null})
         } catch(error) {
             res.json({success: false, response: error.message})
         }
@@ -25,7 +26,8 @@ const usersControllers = {
             if (!savedUser) throw new Error ("Email and/or password incorrect")
             let coincide = bcryptjs.compareSync(password, savedUser.password)
             if (!coincide) throw new Error ("Email and/or password incorrect")
-            res.json({success: true, response: savedUser})
+            const token = jwt.sign({...savedUser}, process.env.SECRETORKEY)
+            res.json({success: true, response: {firstName: savedUser.firstName, src: savedUser.src, token}})
         } catch(error) {
             res.json({success: false, response: error.message})
         }

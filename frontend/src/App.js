@@ -8,9 +8,18 @@ import SignUp from "./pages/SignUp"
 import LogIn from "./pages/LogIn"
 import Error404 from "./pages/Error404"
 import {BrowserRouter, Route, Switch, Redirect} from "react-router-dom"
+import { useEffect } from "react"
+import usersActions from "./redux/actions/usersActions"
+import {connect} from "react-redux"
 
-const App = () => {
+const App = (props) => {
+  useEffect(() => {
+    if (localStorage.getItem("token")){
+      props.logInLS(localStorage.getItem("token"),localStorage.getItem("name"))
 
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <BrowserRouter>
@@ -19,12 +28,24 @@ const App = () => {
             <Route exact path="/cities" component={Cities}/>
             <Route path="/city/:_id" component={City}/>
             <Route path="/notFound" component={Error404}/>
-            <Route path="/signUp" component={SignUp}/>
-            <Route path="/logIn" component={LogIn}/>
+            {!props.token && (<Route path="/signUp" component={SignUp}/>)}
+            {!props.token && (<Route path="/logIn" component={LogIn}/>)}
             <Redirect to="/"/>
         </Switch>
     </BrowserRouter>
   )
 }
 
-export default App
+const mapStateToProps = (state) => {
+  return {
+    token: state.users.token,
+    name: state.users.name
+  }
+  
+}
+
+const mapDispatchToProps = {
+  logInLS: usersActions.logInLS
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
