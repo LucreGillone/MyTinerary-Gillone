@@ -1,23 +1,21 @@
-const usersReducers = (state= {token: null, name: null, src: null}, action) => {
+const usersReducers = (state= {token: null, firstName: null, src: null}, action) => {
     switch(action.type){
         case "LOGGED": 
-            console.log("entre al reducer")
             localStorage.setItem("token", action.payload.token)
             localStorage.setItem("name", action.payload.firstName)
-            localStorage.setItem("profilePic", action.payload.src)
-            console.log(action.payload)
+            localStorage.setItem("src", action.payload.src)
             return {
                 token: action.payload.token, 
-                name: action.payload.firstName,
+                firstName: action.payload.firstName,
                 src: action.payload.src,
             }
         case "LOG_OUT":
             localStorage.removeItem("token")
             localStorage.removeItem("name")
-            localStorage.removeItem("profilePic")
+            localStorage.removeItem("src")
             return {
                 token: null,
-                name: null, 
+                firstName: null, 
                 src: null
             }
         default: 

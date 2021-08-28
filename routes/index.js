@@ -7,7 +7,7 @@ const passport = require("passport")
 const validator = require("../controllers/validator")
 
 router.route("/cities")
-.get(passport.authenticate("jwt", {session: false}), citiesControllers.retrieveAllCities)
+.get(citiesControllers.retrieveAllCities)
 .post(citiesControllers.addCity)
 
 router.route("/city/:id")
@@ -29,6 +29,7 @@ router.route("/itinerary/:id")
 
 router.route("/user/signUp")
 .post(validator, usersControllers.addNewUser)
+// .post(usersControllers.addNewUser)
 
 router.route("/user/logIn")
 .post(usersControllers.logUser)
@@ -36,5 +37,7 @@ router.route("/user/logIn")
 router.route("/user/:id")
 .delete(usersControllers.deleteUser)
 
+router.route("/tokenVerification")
+.get(passport.authenticate("jwt", {session: false}),usersControllers.tokenVerification)
 
 module.exports = router

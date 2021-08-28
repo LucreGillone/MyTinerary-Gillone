@@ -5,6 +5,7 @@ import {Link} from "react-router-dom"
 import Swal from 'sweetalert2'
 import {connect} from "react-redux" 
 import usersActions from "../redux/actions/usersActions"
+import GoogleLogin from 'react-google-login'
 
 const SignUp = (props) => {
     const [countries, setCountries] = useState ([])
@@ -15,8 +16,9 @@ const SignUp = (props) => {
         country: "",
         email: "",
         password: "",
-
     })
+
+    const [error, setError] = useState(null)
 
     const Toast = Swal.mixin({
         toast: true,
@@ -42,7 +44,7 @@ const SignUp = (props) => {
     const inputHandler = (e) => {
         setNewUser({
             ...newUser,
-            [e.target.name]: e.target.value
+            [e.target.firstName]: e.target.value
             
         })
     }
@@ -56,22 +58,37 @@ const SignUp = (props) => {
               })
         } else {
             props.signUp(newUser)
-            // axios.post("http://localhost:4000/api/user/signUp", newUser)
         .then((response) => {
-            console.log(response)
-            if (!response.data.success){//no entra en este if, dice que response es undefined cuando quiero reingresar con un mail que ya está
+            if (response.data.success){
+                Toast.fire({
+                    icon: 'success',
+                     title: 'Your account has been created!'
+                  })
+            } else {//no entra en este else, dice que response es undefined cuando quiero reingresar con un mail que ya está
                 Toast.fire({
                     icon: 'error',
                     title: 'That email has already been used! Try with another one.'
                   })
-            } else {
-                Toast.fire({
-                    icon: 'success',
-                    title: 'Your account has been created!'
-                  })
             }
         })        
         .catch((error) => console.log(error))//catchear comunicacion con BD
+        }
+    }
+
+    const responseGoogle = async (res) => {
+        console.log(res)
+        let googleUser = {
+            firstName: res.profileObj.givenName,
+            lastName: res.profileObj.familyName,
+            src: res.profileObj.imageUrl,
+            country: "Argentina",
+            email: res.profileObj.email,
+            password: res.profileObj.googleId,
+            google: true, 
+        }
+        let response = await props.signUp(googleUser)
+        if (!response.data.success){
+           setError(response.data.error)
         }
     }
 
@@ -80,11 +97,11 @@ const SignUp = (props) => {
         <main>
             <NavBar/>
             <div className="userForm">
-                <h2>Create an Account!</h2>
+                <h3>Create an Account!</h3>
                 <form>
                         <input type="text" onChange={inputHandler}  name="firstName" placeholder="First Name" autoComplete="nope"/>
                         <input type="text" onChange={inputHandler} name="lastName" placeholder="Last Name" autoComplete="nope"/>
-                        <input type="url" onChange={inputHandler} name="src" placeholder="Url of your picture"autoComplete="nope"/>
+                        <input type="url" onChange={inputHandler} name="src" placeholder="Url of your picture" autoComplete="nope"/>
                         <select name="country" onChange={inputHandler}>
                             <option>Choose your country</option>
                             {countries.map((country,index) => 
@@ -100,6 +117,13 @@ const SignUp = (props) => {
                     <h5>Already have an account?</h5>
                     <Link to="/logIn"><h5>Log In</h5></Link>
                 </span>
+                <GoogleLogin
+                    clientId="556133798915-04cvch3go6p7e8emmtorfuogaa933l4h.apps.googleusercontent.com"
+                    buttonText="Sign Up with Google"
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                    cookiePolicy={'single_host_origin'}
+                />
             </div>
             
         </main>

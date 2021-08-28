@@ -13,7 +13,6 @@ const Cities = (props) => {
         async function getAllCities() {
             try{
                 await props.getAllCities(props.token) 
-                console.log(props)
             } catch (err){
                 alert ("you can't access cities if you don't log in")
                 props.history.push("/")

@@ -3,7 +3,6 @@ const City = require("../models/City")
 const citiesControllers = {
 
     retrieveAllCities: async (req, res) => {
-        console.log("ENTRA AL CONTROLLER DE CITIES")
         try {
             var cities = await City.find()
             res.json({success: true, response: cities})

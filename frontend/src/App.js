@@ -15,7 +15,7 @@ import {connect} from "react-redux"
 const App = (props) => {
   useEffect(() => {
     if (localStorage.getItem("token")){
-      props.logInLS(localStorage.getItem("token"),localStorage.getItem("name"))
+      props.logInLS(localStorage.getItem("token"))
 
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -38,8 +38,7 @@ const App = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    token: state.users.token,
-    name: state.users.name
+    token: state.users.token
   }
   
 }

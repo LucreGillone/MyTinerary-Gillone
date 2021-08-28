@@ -1,10 +1,10 @@
 import NavBar from "../components/NavBar"
 import {useState} from "react"
-// import axios from "axios"
 import {Link} from "react-router-dom"
 import Swal from 'sweetalert2'
 import {connect} from "react-redux"
 import usersActions from "../redux/actions/usersActions"
+import GoogleLogin from 'react-google-login'
 
 const LogIn = (props) => {
     const [logUser, setLogUser] = useState ({
@@ -12,6 +12,7 @@ const LogIn = (props) => {
         password: "",
     })
 
+    const [error, setError] = useState(null)
     
     const inputHandler = (e) => {
         setLogUser({
@@ -41,28 +42,42 @@ const LogIn = (props) => {
                 icon: 'error',
                 title: 'There are fields incomplete, please complete them.'
               })
-            // alert("There are fields incomplete, please complete them.")
+
         } else {
-            console.log(props)
             props.logUser(logUser)
             // axios.post("http://localhost:4000/api/user/logIn", logUser)
         .then((response) => {
-            
             if (!response.data.success){
-                Toast.fire({
-                    icon: 'error',
-                    title: 'Email and/or password incorrect'
-                  })
-                // alert(response.data.response)
+                // Toast.fire({
+                //     icon: 'error',
+                //     title: 'Email and/or password incorrect'
+                //   })
+                alert(response.data.response)
             } else {
                 Toast.fire({
                     icon: 'success',
                     title: 'Welcome back!'
                   })
-                // alert("Welcome back!")
             }
         })        
-        .catch((error) => console.log(error))//catchear comunicacion con BD
+        .catch((error) => Toast.fire({
+                icon: 'error',
+                title: 'Email and/or password incorrect'
+              })
+        // alert(error)//
+        )//catchear comunicacion con BD
+        }
+    }
+
+    const responseGoogle =  async res => {
+        console.log(res)
+        let logGoogleUser = {
+            email: res.profileObj.email,
+            password: res.profileObj.googleId
+        }
+        let response = await props.logUser(logGoogleUser)
+        if (!response.data.success){
+           setError(response.data.error)
         }
     }
 
@@ -72,12 +87,19 @@ const LogIn = (props) => {
             <main>
                 <NavBar/>
                 <div className="userForm">
-                    <h2>Welcome back!</h2>
+                    <h3>Welcome back!</h3>
                     <form>
                         <input type="email" onChange={inputHandler} name="email" placeholder="Email" autoComplete="nope"/>
                         <input type="password" onChange={inputHandler} name="password" placeholder="Password" autoComplete="nope"/>
                     </form>
                     <button onClick={submitForm}>Log In</button>
+                    <GoogleLogin
+                    clientId="556133798915-04cvch3go6p7e8emmtorfuogaa933l4h.apps.googleusercontent.com"
+                    buttonText="Sign Up with Google"
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                    cookiePolicy={'single_host_origin'}
+                    />
                     <span className="logIn/signUp">
                         <h5>You don't have an account yet?</h5>
                         <Link to="/signUp"><h5>Sign Up</h5></Link>
