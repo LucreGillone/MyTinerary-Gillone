@@ -18,7 +18,7 @@ const SignUp = (props) => {
         password: "",
     })
 
-    const [error, setError] = useState(null)
+    const [errorInput, setErrorInput] = useState({})
 
     const Toast = Swal.mixin({
         toast: true,
@@ -44,14 +44,14 @@ const SignUp = (props) => {
     const inputHandler = (e) => {
         setNewUser({
             ...newUser,
-            [e.target.firstName]: e.target.value
+            [e.target.name]: e.target.value
             
         })
     }
-
     const submitForm = () => {
         let info = Object.values(newUser).some((infoUser) => infoUser === "")
         if (info) {
+            console.log("no fetcheo")
             Toast.fire({
                 icon: 'error',
                 title: 'There are fields incomplete, please complete them.'
@@ -64,7 +64,19 @@ const SignUp = (props) => {
                     icon: 'success',
                      title: 'Your account has been created!'
                   })
-            } else {//no entra en este else, dice que response es undefined cuando quiero reingresar con un mail que ya está
+            } else if (response.data.errors){
+                setErrorInput({})
+                response.data.errors.map(error => setErrorInput(messageError => {
+                        return {
+                            ...messageError, 
+                        [error.path]: error.message,
+                        }
+                    }
+                    )  
+                   
+                )
+               
+            } else {
                 Toast.fire({
                     icon: 'error',
                     title: 'That email has already been used! Try with another one.'
@@ -74,9 +86,7 @@ const SignUp = (props) => {
         .catch((error) => console.log(error))//catchear comunicacion con BD
         }
     }
-
     const responseGoogle = async (res) => {
-        console.log(res)
         let googleUser = {
             firstName: res.profileObj.givenName,
             lastName: res.profileObj.familyName,
@@ -88,7 +98,7 @@ const SignUp = (props) => {
         }
         let response = await props.signUp(googleUser)
         if (!response.data.success){
-           setError(response.data.error)
+           setErrorInput(response.data.error)
         }
     }
 
@@ -96,11 +106,17 @@ const SignUp = (props) => {
         <>
         <main>
             <NavBar/>
-            <div className="userForm">
+            <div className="airport" style={{backgroundImage: `url("/assets/airport.jpg")`}}>
+
+              <div className="userForm">
                 <h3>Create an Account!</h3>
+
                 <form>
                         <input type="text" onChange={inputHandler}  name="firstName" placeholder="First Name" autoComplete="nope"/>
+                        <p>{errorInput.firstName}</p>
+                        {/* p {errorInput.firstName} */}
                         <input type="text" onChange={inputHandler} name="lastName" placeholder="Last Name" autoComplete="nope"/>
+                        <p>{errorInput.lastName}</p>
                         <input type="url" onChange={inputHandler} name="src" placeholder="Url of your picture" autoComplete="nope"/>
                         <select name="country" onChange={inputHandler}>
                             <option>Choose your country</option>
@@ -110,7 +126,9 @@ const SignUp = (props) => {
                             </option>)}
                         </select>
                         <input type="email" onChange={inputHandler} name="email" placeholder="Email" autoComplete="nope"/>
+                        <p>{errorInput.email}</p>
                         <input type="password" onChange={inputHandler} name="password" placeholder="Password" autoComplete="nope"/>
+                        <p>{errorInput.password}</p>
                 </form>
                 <button onClick={submitForm}>Sign Up</button>
                 <span className="logIn/signUp">
@@ -125,7 +143,9 @@ const SignUp = (props) => {
                     cookiePolicy={'single_host_origin'}
                 />
             </div>
-            
+               
+            </div>
+           
         </main>
             
         </>

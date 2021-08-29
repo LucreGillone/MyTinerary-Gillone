@@ -40,9 +40,7 @@ const usersActions = {
                 dispatch({type: "LOGGED", payload: {token, firstName: response.data.firstName, src: response.data.src}})
             } catch (error) {
                 return dispatch ({type: "LOG_OUT"})
-            }
-            
-            
+            } 
         }
     }
 }

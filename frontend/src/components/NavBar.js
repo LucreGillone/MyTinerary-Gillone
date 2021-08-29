@@ -14,9 +14,9 @@ const Nav = (props) => {
                     ? <div className="profilePic" style={{backgroundImage: `url("${props.src}")`}}></div> 
                     : <img src ="/assets/person-circle.svg" alt="userIcon"/> }
                 </div>
-                <p>{props.token ? props.firstName : ""}</p>
             {/* </div> */}
             {!props.token && <NavLink to="/signUp"><p>Sign up</p></NavLink>}
+            {props.token ? <p>props.firstName</p> : null }
             {!props.token && <NavLink to="/logIn"><p>Log in</p></NavLink>}
             {props.token && <p onClick={() => props.logOut()}>Log out</p>}
         </nav>

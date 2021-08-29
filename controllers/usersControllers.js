@@ -22,11 +22,11 @@ const usersControllers = {
     },
 
     logUser: async (req, res) => {
-        const { email, password } = req.body
+        const { email, password, googleFlag } = req.body
         try {
             let savedUser = await User.findOne({email: email})
             if (!savedUser) throw new Error ("Email and/or password incorrect")
-            //if logged with google you have to log w google else lo que sigue
+            if (savedUser.google && !googleFlag) throw new Error ("Your account was created with Google. Please log in with Google")
             let coincide = bcryptjs.compareSync(password, savedUser.password)
             if (!coincide) throw new Error ("Email and/or password incorrect")
             const token = jwt.sign({...savedUser}, process.env.SECRETORKEY)

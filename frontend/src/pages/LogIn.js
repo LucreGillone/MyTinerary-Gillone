@@ -70,10 +70,10 @@ const LogIn = (props) => {
     }
 
     const responseGoogle =  async res => {
-        console.log(res)
         let logGoogleUser = {
             email: res.profileObj.email,
-            password: res.profileObj.googleId
+            password: res.profileObj.googleId,
+            googleFlag: true
         }
         let response = await props.logUser(logGoogleUser)
         if (!response.data.success){
