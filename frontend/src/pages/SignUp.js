@@ -51,7 +51,6 @@ const SignUp = (props) => {
     const submitForm = () => {
         let info = Object.values(newUser).some((infoUser) => infoUser === "")
         if (info) {
-            console.log("no fetcheo")
             Toast.fire({
                 icon: 'error',
                 title: 'There are fields incomplete, please complete them.'
@@ -83,7 +82,7 @@ const SignUp = (props) => {
                   })
             }
         })        
-        .catch((error) => console.log(error))//catchear comunicacion con BD
+        .catch((error) => console.log(error))
         }
     }
     const responseGoogle = async (res) => {
@@ -110,14 +109,16 @@ const SignUp = (props) => {
 
               <div className="userForm">
                 <h3>Create an Account!</h3>
-
+                {/* poner en 2 divs los inputs */}
                 <form>
+                    <div className="inputs">
                         <input type="text" onChange={inputHandler}  name="firstName" placeholder="First Name" autoComplete="nope"/>
                         <p>{errorInput.firstName}</p>
-                        {/* p {errorInput.firstName} */}
                         <input type="text" onChange={inputHandler} name="lastName" placeholder="Last Name" autoComplete="nope"/>
                         <p>{errorInput.lastName}</p>
                         <input type="url" onChange={inputHandler} name="src" placeholder="Url of your picture" autoComplete="nope"/>
+                    </div>
+                    <div className="inputs">
                         <select name="country" onChange={inputHandler}>
                             <option>Choose your country</option>
                             {countries.map((country,index) => 
@@ -129,12 +130,9 @@ const SignUp = (props) => {
                         <p>{errorInput.email}</p>
                         <input type="password" onChange={inputHandler} name="password" placeholder="Password" autoComplete="nope"/>
                         <p>{errorInput.password}</p>
+                    </div>
                 </form>
                 <button onClick={submitForm}>Sign Up</button>
-                <span className="logIn/signUp">
-                    <h5>Already have an account?</h5>
-                    <Link to="/logIn"><h5>Log In</h5></Link>
-                </span>
                 <GoogleLogin
                     clientId="556133798915-04cvch3go6p7e8emmtorfuogaa933l4h.apps.googleusercontent.com"
                     buttonText="Sign Up with Google"
@@ -142,6 +140,10 @@ const SignUp = (props) => {
                     onFailure={responseGoogle}
                     cookiePolicy={'single_host_origin'}
                 />
+                  <span className="logIn/signUp">
+                    <h5>Already have an account?</h5>
+                    <Link to="/logIn"><h5>Log In</h5></Link>
+                </span>
             </div>
                
             </div>

@@ -86,7 +86,9 @@ const LogIn = (props) => {
         <>
             <main>
                 <NavBar/>
-                <div className="userForm">
+                
+                <div className="jetway" style={{backgroundImage: `url("/assets/jetway.jpg")`}}>
+                   <div className="userForm">
                     <h3>Welcome back!</h3>
                     <form>
                         <input type="email" onChange={inputHandler} name="email" placeholder="Email" autoComplete="nope"/>
@@ -95,7 +97,7 @@ const LogIn = (props) => {
                     <button onClick={submitForm}>Log In</button>
                     <GoogleLogin
                     clientId="556133798915-04cvch3go6p7e8emmtorfuogaa933l4h.apps.googleusercontent.com"
-                    buttonText="Sign Up with Google"
+                    buttonText="Log in with Google"
                     onSuccess={responseGoogle}
                     onFailure={responseGoogle}
                     cookiePolicy={'single_host_origin'}
@@ -106,6 +108,7 @@ const LogIn = (props) => {
                     </span>
                     
                 </div> 
+                </div>
             </main>
             
         </>

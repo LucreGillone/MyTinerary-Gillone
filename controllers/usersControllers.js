@@ -8,11 +8,9 @@ const usersControllers = {
         const { firstName, lastName, email, password, src, country, google } = req.body
         let hashedPassword = bcryptjs.hashSync(password)
         const newUser = new User({ firstName, lastName, email, password: hashedPassword, src, country, google })
-        // console.log(newUser)
         try {
             let repeatedUser = await User.findOne({email: email})
             if (repeatedUser) throw new Error
-            console.log(Error)
             await newUser.save()
             const token = jwt.sign({...newUser}, process.env.SECRETORKEY)
             res.json({success: true, response: {firstName: newUser.firstName, src: newUser.src, token}, error: null})

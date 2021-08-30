@@ -11,10 +11,10 @@ const usersActions = {
            return response 
         }
     },
+    
     logUser: (logUser) => {
         return async (dispatch, getState) => {
             let response = await axios.post("http://localhost:4000/api/user/logIn", {...logUser})
-            console.log(response.data.response)
             if (response.data.success){
                 dispatch({type: "LOGGED", payload: response.data.response})   
             }
