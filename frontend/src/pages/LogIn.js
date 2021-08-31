@@ -12,7 +12,7 @@ const LogIn = (props) => {
         password: "",
     })
 
-    const [error, setError] = useState(null)
+    const [errorInput, setErrorInput] = useState(null)
     
     const inputHandler = (e) => {
         setLogUser({
@@ -52,7 +52,7 @@ const LogIn = (props) => {
                 //     icon: 'error',
                 //     title: 'Email and/or password incorrect'
                 //   })
-                alert(response.data.response)
+                alert(response.data.response)//camnbiar alert feo
             } else {
                 Toast.fire({
                     icon: 'success',
@@ -76,9 +76,24 @@ const LogIn = (props) => {
             googleFlag: true
         }
         let response = await props.logUser(logGoogleUser)
-        if (!response.data.success){
-           setError(response.data.error)
-        }
+        .then(() => {
+            if (response.data.success){
+                Toast.fire({
+                    icon: 'success',
+                     title: 'Welcome back!'
+                  })
+            }
+            else{
+            setErrorInput(response.data.error)
+            }
+        })
+        .catch((error) => {
+            console.log(error)
+            Toast.fire({
+                icon: 'error',
+                title: 'You have to sign up before you log in!'
+              })
+        })
     }
 
 

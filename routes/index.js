@@ -2,6 +2,7 @@ const express = require("express")
 const citiesControllers = require("../controllers/citiesControllers")
 const itinerariesControllers = require("../controllers/itinerariesControllers")
 const usersControllers = require("../controllers/usersControllers")
+const activitiesControllers = require("../controllers/activitiesControllers")
 const router = express.Router()
 const passport = require("passport")
 const validator = require("../controllers/validator")
@@ -29,7 +30,6 @@ router.route("/itinerary/:id")
 
 router.route("/user/signUp")
 .post(validator, usersControllers.addNewUser)
-// .post(usersControllers.addNewUser)
 
 router.route("/user/logIn")
 .post(usersControllers.logUser)
@@ -39,5 +39,11 @@ router.route("/user/:id")
 
 router.route("/tokenVerification")
 .get(passport.authenticate("jwt", {session: false}),usersControllers.tokenVerification)
+
+router.route("/activities")
+.post(activitiesControllers.addActivity)
+
+router.route("/activities/:itineraryId")
+.get(activitiesControllers.retrieveActivitiesOfOneItinerary)
 
 module.exports = router

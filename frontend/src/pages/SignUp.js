@@ -82,7 +82,13 @@ const SignUp = (props) => {
                   })
             }
         })        
-        .catch((error) => console.log(error))
+        .catch((error) => {
+            console.log(error)
+            Toast.fire({
+                icon: 'error',
+                title: 'We are having technical difficulties! Come back later!'
+              })
+            })
         }
     }
     const responseGoogle = async (res) => {
@@ -96,9 +102,25 @@ const SignUp = (props) => {
             google: true, 
         }
         let response = await props.signUp(googleUser)
-        if (!response.data.success){
-           setErrorInput(response.data.error)
-        }
+        .then(() => {
+            if (response.data.success){
+                Toast.fire({
+                    icon: 'success',
+                     title: 'Your account has been created!'
+                  })
+            }
+            else{
+            setErrorInput(response.data.error)
+            }
+        })
+        .catch((error) => {
+            console.log(error)
+            Toast.fire({
+                icon: 'error',
+                title: 'Something went wrong! Come back later!'
+              })
+        })
+        
     }
 
     return (
