@@ -6,7 +6,7 @@ import commentsActions from "../redux/actions/commentsActions"
 const Comments = (props) => {
     const { Comments, token} = props
     const {Itineraries, firstName, src} = Comments
-    const [comments, setComments] = useState ([])
+    // const [comments, setComments] = useState ([])
     const [newComment, setNewComment] = useState ({
         firstName: firstName,
         src: src,
@@ -45,7 +45,8 @@ const Comments = (props) => {
             props.addComment(newComment, Itineraries._id)
             .then((response) => {
               if (response.data.success) {
-                setComments(newComment.response)
+                // setComments(newComment.response)
+                console.log(response)
               } 
             })
             .catch((error) => {
@@ -87,9 +88,8 @@ const Comments = (props) => {
 const mapStateToProps = (state) => {
     return {
       token: state.users.token
-    }
-    
-  }
+    }   
+}
 
 const mapDispatchToProps = {
     addComment: commentsActions.addComment,

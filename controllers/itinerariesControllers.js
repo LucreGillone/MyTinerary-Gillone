@@ -71,6 +71,32 @@ const itinerariesControllers = {
             res.json({success: false, response: error.message})
         }
     }, 
+
+    addComment: async (req, res) => {
+        try {
+            const newComment = await Itinerary.findOneAndUpdate({_id: req.params.id}, {$push: {comments: {comment: req.body.comment, userId: req.user._id}}}, {new: true})
+            if (newComment) {
+                res.json({success: true, response: newComment.comments})
+            } else {
+                throw new Error()
+            }
+        } catch (error) {
+            res.json({success: false, response: error.message})
+        }
+    }, 
+
+    deleteComment: async (req, res) => {
+        try {
+            let deleteComment = await Itinerary.findOneAndUpdate({"comments._id": req.params.id}, {$pull: {comments: {_id: req.params.id}}}, {new: true})
+            if (deleteComment) {
+                res.json({success: true, response: deleteComment.comments})
+            } else {
+                throw new Error()
+            }
+        } catch (error) {
+            res.json({success: false, response: error.message})
+        }
+    }
 }
 
 module.exports = itinerariesControllers

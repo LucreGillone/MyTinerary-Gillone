@@ -43,7 +43,7 @@ const City = (props) => {
                 <div className="cityDescription">{props.selectedCity.description}</div>
                 <div>
                     {props.cityItineraries.length !==0 
-                    ? props.cityItineraries.map((itineraries, index) => <Itinerary Itineraries={itineraries} key={index}/>)
+                    ? props.cityItineraries.map((itineraries) => <Itinerary Itineraries={itineraries} key={itineraries.id}/>)
                     : <NoItineraries/>}
                 </div>
                 <div className="construction">
