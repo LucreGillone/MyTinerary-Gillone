@@ -2,7 +2,6 @@ import axios from "axios"
 
 const activitiesActions = {
     getActivitiesByItinerary: (itineraryId) => {
-        console.log("hola")
         return async (dispatch, getState) => {
             try {
                 let response = await axios.get(`http://localhost:4000/api/activities/${itineraryId}`)
@@ -16,7 +15,6 @@ const activitiesActions = {
             }
         }
     }
-
 }
 
 export default activitiesActions

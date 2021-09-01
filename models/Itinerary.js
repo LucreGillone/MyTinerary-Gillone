@@ -13,7 +13,6 @@ const itinerarySchema = new mongoose.Schema ({
     src:{type: String, required: true},
     cityId: {type: mongoose.Types.ObjectId, ref: "city"},
     season: {type: String}
-    // map: 
 })
 
 const Itinerary = mongoose.model("itinerary", itinerarySchema)

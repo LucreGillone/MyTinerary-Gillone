@@ -65,13 +65,12 @@ const itinerariesControllers = {
             if (itinerary) {
                 res.json({success: true, response: modifiedItinerary})
             } else {
-                throw new Error 
+                throw new Error() 
             }
         } catch (error) {
             res.json({success: false, response: error.message})
         }
-    }
-
+    }, 
 }
 
 module.exports = itinerariesControllers

@@ -3,6 +3,7 @@ const citiesControllers = require("../controllers/citiesControllers")
 const itinerariesControllers = require("../controllers/itinerariesControllers")
 const usersControllers = require("../controllers/usersControllers")
 const activitiesControllers = require("../controllers/activitiesControllers")
+const commentsControllers = require("../controllers/commentsControllers")
 const router = express.Router()
 const passport = require("passport")
 const validator = require("../controllers/validator")
@@ -45,5 +46,12 @@ router.route("/activities")
 
 router.route("/activities/:itineraryId")
 .get(activitiesControllers.retrieveActivitiesOfOneItinerary)
+
+router.route("/comments/:itineraryId")
+.post(commentsControllers.addNewComment)
+
+router.route("/comment/:id")
+.put(commentsControllers.editComment)
+.delete(commentsControllers.deleteComment)
 
 module.exports = router

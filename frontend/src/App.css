@@ -588,11 +588,45 @@ div.activityPic {
     border-radius: 10px;
 }
 
+div.activity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 div.comments {
     background-color: lightgray;
     border-radius: 5px;
-    width: 90%;
+    width: 100%;
     min-height: 10rem;
+}
+
+div.commentInputContainer {
+    width: 100%;
+    display:flex;
+}
+
+input.commentsInputs {
+    width: 90%;
+}
+
+button.sendComment {
+    margin: 0;
+    height: 2rem;
+    padding: 0.3rem;
+    font-size: 2vmin;
+}
+
+div.show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+div.hide {
+    visibility: hidden;
+    display: none;
 }
 
 @media screen and (max-width:1500px) {
@@ -700,12 +734,18 @@ div.comments {
         width: 75%;
         gap: 1rem; 
     }
+    
+    div.viewMore{
+        width: auto;
+        display: flex;
+        align-items: center;
+    }
 
-    div.viewMore {
+    div.viewLess {
         margin-top: 1rem;
         display: flex;
         flex-direction: column;
-        width: 90%;
+        width: 100%;
         align-items: center;
     }
 

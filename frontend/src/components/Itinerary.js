@@ -1,11 +1,13 @@
 import { useState, useEffect} from "react"
 import {connect} from "react-redux"
 import activitiesActions from "../redux/actions/activitiesActions"
+// import usersActions from "../redux/actions/usersActions"
 import Activity from "./Activity"
+import Comments from "./Comments"
 
 
 const Itinerary = (props) => {
-    console.log(props.Itineraries._id)
+    console.log(props)
     useEffect(() => {
         window.scrollTo(0,0)
         props.getActivitiesByItinerary(props.Itineraries._id)
@@ -25,12 +27,6 @@ const Itinerary = (props) => {
         return (
             <p key={index}>{"#" + hashtag}</p>
         )
-    })
-   
-
-    const showActivities = props.itineraryActivities.map((activities, index) =>{
-        
-    <Activity Activities={activities}  key={index}/>
     })
 
     
@@ -55,17 +51,18 @@ const Itinerary = (props) => {
             
                 <div className="cityPicture" style={{backgroundImage: `url("${itinerariesInfo.src}")`}}></div>
             </div>
-            <div className="viewMore">
-                <div className="activities">
+            <div className={collapse ? " View More" : "View Less"}>
+                <div className = {collapse ? "hide" : "show"}>
                     <h4>Activities</h4>
-                    {!collapse 
-                    ?  props.itineraryActivities.map((activities, index) => <Activity Activities={activities}  key={index}/>)
-                    : null}
+                    <div className="activities">
+                        {/* <h4>Activities</h4> */}
+                        {!collapse 
+                        ?  props.itineraryActivities.map((activities, index) => <Activity Activities={activities}  key={index}/>)
+                        : null}
+                    </div>
+                    <Comments Comments={props}/>
                 </div>
-                <h4>Comments</h4>
-                <div className="comments">
-
-                </div>
+                
                 
                 <button className="viewMore" onClick={toggleInfo}>{collapse ? " View More" : "View Less"}</button>
            
@@ -78,12 +75,15 @@ const Itinerary = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        itineraryActivities: state.activities.itineraryActivities
+        itineraryActivities: state.activities.itineraryActivities, 
+        token: state.users.token,
+        firstName: state.users.firstName,
+        src: state.users.src,
     }
 }
  
 const mapDispatchToProps = {
-    getActivitiesByItinerary: activitiesActions.getActivitiesByItinerary
+    getActivitiesByItinerary: activitiesActions.getActivitiesByItinerary,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Itinerary) 
