@@ -37,7 +37,7 @@ const usersActions = {
                 }
                 
                  })
-                dispatch({type: "LOGGED", payload: {token, firstName: response.data.firstName, src: response.data.src}})
+                dispatch({type: "LOGGED", payload: {token, firstName: response.data.firstName, src: response.data.src, _id: response.data._id}})
             } catch (error) {
                 return dispatch ({type: "LOG_OUT"})
             } 

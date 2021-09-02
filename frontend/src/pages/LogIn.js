@@ -69,21 +69,23 @@ const LogIn = (props) => {
         }
     }
 
-    const responseGoogle =  async res => {
+    const responseGoogle =  res => {
         let logGoogleUser = {
             email: res.profileObj.email,
             password: res.profileObj.googleId,
             googleFlag: true
         }
-        let response = await props.logUser(logGoogleUser)
-        .then(() => {
+        props.logUser(logGoogleUser)
+        .then((response) => {
             if (response.data.success){
+                console.log(response)
                 Toast.fire({
                     icon: 'success',
                      title: 'Welcome back!'
                   })
             }
             else{
+                console.log(response)
             setErrorInput(response.data.error)
             }
         })

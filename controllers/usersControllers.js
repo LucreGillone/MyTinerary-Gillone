@@ -13,7 +13,7 @@ const usersControllers = {
             if (repeatedUser) throw new Error
             await newUser.save()
             const token = jwt.sign({...newUser}, process.env.SECRETORKEY)
-            res.json({success: true, response: {firstName: newUser.firstName, src: newUser.src, token}, error: null})
+            res.json({success: true, response: {firstName: newUser.firstName, src: newUser.src, _id: newUser._id, token}, error: null})
         } catch(error) {
             res.json({success: false, response: error.message})
         }
@@ -28,7 +28,7 @@ const usersControllers = {
             let coincide = bcryptjs.compareSync(password, savedUser.password)
             if (!coincide) throw new Error ("Email and/or password incorrect")
             const token = jwt.sign({...savedUser}, process.env.SECRETORKEY)
-            res.json({success: true, response: {firstName: savedUser.firstName, src: savedUser.src, token}})
+            res.json({success: true, response: {firstName: savedUser.firstName, src: savedUser.src, _id: savedUser._id, token}})
         } catch(error) {
             res.json({success: false, response: error.message})
         }
@@ -48,7 +48,7 @@ const usersControllers = {
     }, 
 
     tokenVerification: (req, res) => {
-        res.json({firstName: req.user.firstName, src: req.user.src})
+        res.json({firstName: req.user.firstName, src: req.user.src, _id: req.user._id})
     }
 }
 

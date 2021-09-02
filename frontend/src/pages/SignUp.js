@@ -91,7 +91,7 @@ const SignUp = (props) => {
             })
         }
     }
-    const responseGoogle = async (res) => {
+    const responseGoogle = (res) => {
         let googleUser = {
             firstName: res.profileObj.givenName,
             lastName: res.profileObj.familyName,
@@ -101,8 +101,8 @@ const SignUp = (props) => {
             password: res.profileObj.googleId,
             google: true, 
         }
-        let response = await props.signUp(googleUser)
-        .then(() => {
+         props.signUp(googleUser)
+        .then((response) => {
             if (response.data.success){
                 Toast.fire({
                     icon: 'success',

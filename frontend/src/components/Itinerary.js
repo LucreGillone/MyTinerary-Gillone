@@ -50,7 +50,8 @@ const Itinerary = (props) => {
             
                 <div className="cityPicture" style={{backgroundImage: `url("${itinerariesInfo.src}")`}}></div>
             </div>
-            <div className={collapse ? " View More" : "View Less"}>
+            {/* <div className={collapse ? "viewMore" : "viewLess"}> */}
+            <div className="activitiesContainer">
                 <div className = {collapse ? "hide" : "show"}>
                     <h4>Activities</h4>
                     <div className="activities">

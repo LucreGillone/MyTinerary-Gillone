@@ -61,10 +61,10 @@ const itinerariesActions = {
         }
     }, 
 
-    editComment: (itineraryId, commentId, token) => {
+    editComment: (commentId, comment, token) => {
         return async () => {
             try {
-                let response = await axios.put(`http://localhost:4000/api/comments/${itineraryId}`, {commentId, type: "editComment"},
+                let response = await axios.put(`http://localhost:4000/api/comments/${commentId}`, { comment, type: "editComment"},
                 {headers: {
                     Authorization: "Bearer "+token
                     }

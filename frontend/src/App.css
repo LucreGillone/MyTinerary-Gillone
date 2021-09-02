@@ -583,8 +583,8 @@ div.activities {
 div.activityPic {
     background-position: center;
     background-size: cover;
-    width: 7rem;
-    height: 7rem;
+    width: 12rem;
+    height: 17rem;
     border-radius: 10px;
 }
 
@@ -604,6 +604,18 @@ div.comments {
 
 div.textArea {
     display: flex;
+}
+
+div.textArea p {
+    background-color: lightslategray;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+    padding: .5rem;
+    font-size: 2vmin;
+    margin-left: 2rem;
+    margin-right: .5rem;
+    margin-top: .5rem;
 }
 
 div.commentInputContainer {
@@ -626,7 +638,20 @@ div.show {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 90%;
+}
+
+div.show p {
+    margin: .5rem 0;
+}
+
+div.activitiesContainer {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+    border-top-style: outset;
 }
 
 div.hide {
@@ -739,20 +764,6 @@ div.hide {
         width: 75%;
         gap: 1rem; 
     }
-    
-    div.viewMore{
-        width: auto;
-        display: flex;
-        align-items: center;
-    }
-
-    div.viewLess {
-        margin-top: 1rem;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-    }
 
     div.inputContainer button {
         font-size: 2vmin;
@@ -773,6 +784,10 @@ div.hide {
 
     div.inputs {
         width: 90%;
+    }
+
+    div.activities {
+        flex-wrap: wrap;
     }
 }
 
