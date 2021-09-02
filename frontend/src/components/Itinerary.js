@@ -7,7 +7,6 @@ import Comments from "./Comments"
 
 
 const Itinerary = (props) => {
-    console.log(props)
     useEffect(() => {
         window.scrollTo(0,0)
         props.getActivitiesByItinerary(props.Itineraries._id)
@@ -55,12 +54,11 @@ const Itinerary = (props) => {
                 <div className = {collapse ? "hide" : "show"}>
                     <h4>Activities</h4>
                     <div className="activities">
-                        {/* <h4>Activities</h4> */}
                         {!collapse 
                         ?  props.itineraryActivities.map((activities, index) => <Activity Activities={activities}  key={index}/>)
                         : null}
                     </div>
-                    <Comments Comments={props}/>
+                    <Comments itineraryId={props.Itineraries._id} comments={props.Itineraries.comments}/>
                 </div>
                 
                 

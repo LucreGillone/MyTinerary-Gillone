@@ -1,8 +1,6 @@
 const Activity = (props) => {
 
     let activitiesInfo = props.Activities
-    console.log("hola")
-    console.log(activitiesInfo)
 
     return (
     

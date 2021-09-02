@@ -598,7 +598,12 @@ div.comments {
     background-color: lightgray;
     border-radius: 5px;
     width: 100%;
-    min-height: 10rem;
+    max-height: 10rem;
+    overflow-y: auto;
+}
+
+div.textArea {
+    display: flex;
 }
 
 div.commentInputContainer {

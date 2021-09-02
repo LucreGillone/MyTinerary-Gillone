@@ -5,7 +5,7 @@ import {Link} from "react-router-dom"
 import Itinerary from "../components/Itinerary"
 import {connect} from "react-redux" 
 import citiesActions from "../redux/actions/citiesActions"
-import itinerariesActions from "../redux/actions/itinerariesAction"
+import itinerariesActions from "../redux/actions/itinerariesActions"
 import NoItineraries from "../components/NoItineraries"
 
 const City = (props) => {

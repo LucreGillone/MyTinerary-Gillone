@@ -12,7 +12,6 @@ module.exports = passport.use(
         (payload, done) => {
         User.findOne({_id: payload._doc._id})
             .then(response => {
-                console.log(response)
                 if (!response){
                     return done(null, false)
                 } else {

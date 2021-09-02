@@ -48,10 +48,10 @@ router.route("/activities/:itineraryId")
 .get(activitiesControllers.retrieveActivitiesOfOneItinerary)
 
 router.route("/comments/:id")
-.post(passport.authenticate("jwt", {session: false}),itinerariesControllers.addComment)
+.put(passport.authenticate("jwt", {session: false}),itinerariesControllers.editComment)
 
-router.route("/comment/:id")
-// .put(commentsControllers.editComment)
-.delete(itinerariesControllers.deleteComment)
+// router.route("/comment/:id")
+// .put(itinerariesControllers.editComment)
+// .delete(itinerariesControllers.deleteComment)
 
 module.exports = router
