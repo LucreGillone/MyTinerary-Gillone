@@ -78,14 +78,12 @@ const LogIn = (props) => {
         props.logUser(logGoogleUser)
         .then((response) => {
             if (response.data.success){
-                console.log(response)
                 Toast.fire({
                     icon: 'success',
                      title: 'Welcome back!'
                   })
             }
             else{
-                console.log(response)
             setErrorInput(response.data.error)
             }
         })

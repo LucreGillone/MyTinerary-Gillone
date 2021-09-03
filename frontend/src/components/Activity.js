@@ -1,5 +1,4 @@
 const Activity = (props) => {
-
     let activitiesInfo = props.Activities
 
     return (

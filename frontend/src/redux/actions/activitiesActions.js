@@ -6,7 +6,7 @@ const activitiesActions = {
             try {
                 let response = await axios.get(`http://localhost:4000/api/activities/${itineraryId}`)
                 let data = response.data.response
-                dispatch({type: "GET_ACTIVITY_BY_ITINERARYID", payload: data})
+                return data
             } catch (error){
                 return {
                     success: false, response: error

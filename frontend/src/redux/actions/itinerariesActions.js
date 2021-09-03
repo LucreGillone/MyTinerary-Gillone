@@ -82,6 +82,22 @@ const itinerariesActions = {
                 }
             }
         }    
+    }, 
+
+    likeDislike: (itineraryId, token) => {
+        return async () => {
+            try {
+                let response = await axios.put(`http://localhost:4000/api/itinerary/like/${itineraryId}`, {},
+                {headers: {
+                    Authorization: "Bearer "+token
+                    }
+                })
+                return response
+                
+            }catch (error) {
+                console.log(error)
+            }
+        }
     }
 } 
 

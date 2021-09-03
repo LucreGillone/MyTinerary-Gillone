@@ -3,7 +3,6 @@ const citiesControllers = require("../controllers/citiesControllers")
 const itinerariesControllers = require("../controllers/itinerariesControllers")
 const usersControllers = require("../controllers/usersControllers")
 const activitiesControllers = require("../controllers/activitiesControllers")
-// const commentsControllers = require("../controllers/commentsControllers")
 const router = express.Router()
 const passport = require("passport")
 const validator = require("../controllers/validator")
@@ -50,8 +49,7 @@ router.route("/activities/:itineraryId")
 router.route("/comments/:id")
 .put(passport.authenticate("jwt", {session: false}),itinerariesControllers.editComment)
 
-// router.route("/comment/:id")
-// .put(itinerariesControllers.editComment)
-// .delete(itinerariesControllers.deleteComment)
+router.route("/itinerary/like/:id")
+.put(passport.authenticate("jwt", {session: false}),itinerariesControllers.likeDislikeItinerary)
 
 module.exports = router
