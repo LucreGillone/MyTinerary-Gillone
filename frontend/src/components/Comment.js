@@ -32,9 +32,7 @@ const Comment = (props) => {
 
     const user = props.newComment.userId._id === props._id
     const comment = <div className="textArea">
-                        {/* <div className="profilePic" style={{backgroundImage:`url("${props.newComment.userId.src}")` }}></div> */}
                         <div>
-                            {/* <h6>{props.newComment.userId.firstName}</h6> */}
                             {!modifyComment 
                             ? <p>{props.newComment.comment}</p>
                             :<>
@@ -49,29 +47,15 @@ const Comment = (props) => {
 
     const renderComment = user ? comment : <p>{props.newComment.comment}</p> 
     
-    //                                              <div className="textArea"> 
-    //                                             <div className="profilePic" style={{backgroundImage:`url("${props.newComment.userId.src}")` }}> </div>
-    //                                             <div>
-    //                                                 <h6>{props.newComment.userId.firstName}</h6>
-    //                                                 <p>{props.newComment.comment}</p> 
-    //                                             </div>
-    //                                         </div>
-    
     return (
         <>
-          
             <div className="textArea"> 
             <div className="profilePic" style={{backgroundImage:`url("${props.newComment.userId.src}")` }}> </div>
             <div>
-                    <h6>{props.newComment.userId.firstName}</h6>
-                    {renderComment}  
+                <h6>{props.newComment.userId.firstName}</h6>
+                {renderComment}  
             </div>
-            </div>
-
-             
-            
-
-            
+            </div>   
         </>
     )
 }
