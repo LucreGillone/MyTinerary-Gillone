@@ -45,7 +45,7 @@ const LogIn = (props) => {
 
         } else {
             props.logUser(logUser)
-            // axios.post("http://localhost:4000/api/user/logIn", logUser)
+            // axios.post("https://gillone-mytinerary.herokuapp.com/api/user/logIn", logUser)
         .then((response) => {
             if (!response.data.success){
                 // Toast.fire({

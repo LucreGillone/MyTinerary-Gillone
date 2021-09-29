@@ -3,7 +3,7 @@ import axios from "axios"
 const citiesActions = {
     getAllCities: (token) => {
         return async (dispatch, getState) => {
-            let response = await axios.get("http://localhost:4000/api/cities")
+            let response = await axios.get("https://gillone-mytinerary.herokuapp.com/api/cities")
             if (!response.data.success) {
                 throw new Error("Issues between backend & database")
             }

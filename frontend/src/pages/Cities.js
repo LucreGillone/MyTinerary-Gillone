@@ -12,17 +12,16 @@ const Cities = (props) => {
         window.scrollTo(0,0)
         async function getAllCities() {
             try{
-                await props.getAllCities(props.token) 
+                await props.getAllCities() 
             } catch (err){
-                alert ("you can't access cities if you don't log in")
-                props.history.push("/")
+                console.log(err)
                 return false
             }
             setLoading(false)
         }
         getAllCities()
        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [props.token])
+    }, [])
 
     if (loading) {
         return <div className="loading">

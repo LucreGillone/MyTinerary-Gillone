@@ -3,7 +3,7 @@ import axios from "axios"
 const usersActions = {
     signUp: (newUser) => {
         return async (dispatch, getState) => {
-            let response = await axios.post("http://localhost:4000/api/user/signUp", {...newUser})
+            let response = await axios.post("https://gillone-mytinerary.herokuapp.com/api/user/signUp", {...newUser})
             if (response.data.success){
                 dispatch({type: "LOGGED", payload: response.data.response})
                 
@@ -14,7 +14,7 @@ const usersActions = {
     
     logUser: (logUser) => {
         return async (dispatch, getState) => {
-            let response = await axios.post("http://localhost:4000/api/user/logIn", {...logUser})
+            let response = await axios.post("https://gillone-mytinerary.herokuapp.com/api/user/logIn", {...logUser})
             if (response.data.success){
                 dispatch({type: "LOGGED", payload: response.data.response})   
             }
@@ -31,7 +31,7 @@ const usersActions = {
     logInLS: (token) => {
         return async (dispatch, getState) => {
             try {
-                let response = await axios.get("http://localhost:4000/api/tokenVerification", {
+                let response = await axios.get("https://gillone-mytinerary.herokuapp.com/api/tokenVerification", {
                 headers: {
                     Authorization: "Bearer "+token
                 }

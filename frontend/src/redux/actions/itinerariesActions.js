@@ -4,7 +4,7 @@ const itinerariesActions = {
     getItineraryByCity: (cityId) => {
         return async (dispatch, getState) => {
             try {
-                let response = await axios.get(`http://localhost:4000/api/itineraries/${cityId}`)
+                let response = await axios.get(`https://gillone-mytinerary.herokuapp.com/api/itineraries/${cityId}`)
                 let data = response.data.response
                 dispatch({type: "GET_ITINERARY_BY_CITYID", payload: data})
             } catch (error){
@@ -18,7 +18,7 @@ const itinerariesActions = {
     addComment: (itineraryId, comment, token) => {
         return async () => {
             try {
-                let response = await axios.put(`http://localhost:4000/api/comments/${itineraryId}`, {comment, type: "addComment"},
+                let response = await axios.put(`https://gillone-mytinerary.herokuapp.com/api/comments/${itineraryId}`, {comment, type: "addComment"},
                 {headers: {
                     Authorization: "Bearer "+token
                     }
@@ -41,7 +41,7 @@ const itinerariesActions = {
     deleteComment: (itineraryId, commentId, token) => {
         return async (dispatch) => {
             try {
-                let response = await axios.put(`http://localhost:4000/api/comments/${itineraryId}`, {commentId, type: "deleteComment"},
+                let response = await axios.put(`https://gillone-mytinerary.herokuapp.com/api/comments/${itineraryId}`, {commentId, type: "deleteComment"},
                 {headers: {
                     Authorization: "Bearer "+token
                     }
@@ -64,7 +64,7 @@ const itinerariesActions = {
     editComment: (commentId, comment, token) => {
         return async () => {
             try {
-                let response = await axios.put(`http://localhost:4000/api/comments/${commentId}`, { comment, type: "editComment"},
+                let response = await axios.put(`https://gillone-mytinerary.herokuapp.com/api/comments/${commentId}`, { comment, type: "editComment"},
                 {headers: {
                     Authorization: "Bearer "+token
                     }
@@ -87,7 +87,7 @@ const itinerariesActions = {
     likeDislike: (itineraryId, token) => {
         return async () => {
             try {
-                let response = await axios.put(`http://localhost:4000/api/itinerary/like/${itineraryId}`, {},
+                let response = await axios.put(`https://gillone-mytinerary.herokuapp.com/api/itinerary/like/${itineraryId}`, {},
                 {headers: {
                     Authorization: "Bearer "+token
                     }
