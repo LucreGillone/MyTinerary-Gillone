@@ -11,6 +11,7 @@ const path = require("path")
 //Middleware
 app.use(cors())
 app.use(express.json())
+app.use("/api", router) 
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'))
@@ -19,6 +20,5 @@ if(process.env.NODE_ENV === 'production'){
     })
 }
 
-app.use("/api", router) //cuando se haga cualquier pedido de cualquier metodo a una ruta que empiece con "/api" ejecuta la funcion router. se pone a escuchar al router
 
 app.listen(process.env.PORT || 4000, '0.0.0.0',()=>console.log('Running on port 4000'))
