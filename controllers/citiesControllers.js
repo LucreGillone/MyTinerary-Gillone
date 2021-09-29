@@ -28,7 +28,7 @@ const citiesControllers = {
     deleteCity: async (req, res) => {
        try {
            var deleteCity = await City.findOneAndDelete({_id: req.params.id})
-            if (city) {
+            if (deleteCity) {
                 res.json({success: true, response: deleteCity})
             } else {
                 throw new Error()

@@ -14,7 +14,7 @@ const Cities = (props) => {
             try{
                 await props.getAllCities() 
             } catch (err){
-                console.log(err)
+                console.log(err.message)
                 return false
             }
             setLoading(false)

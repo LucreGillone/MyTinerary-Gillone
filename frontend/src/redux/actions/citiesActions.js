@@ -4,6 +4,7 @@ const citiesActions = {
     getAllCities: (token) => {
         return async (dispatch, getState) => {
             let response = await axios.get("https://gillone-mytinerary.herokuapp.com/api/cities")
+            console.log(response)
             if (!response.data.success) {
                 throw new Error("Issues between backend & database")
             }
