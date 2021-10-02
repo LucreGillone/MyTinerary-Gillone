@@ -84,6 +84,7 @@ const mapDispatchToProps = {
     addComment: commentsActions.addComment,
     editComment: commentsActions.editComment,
     deleteComment: commentsActions.deleteComment
+    //cambiar comments actions x itineraries actions (gilastruna no tenes nada en comments actions)
 
 }
 
