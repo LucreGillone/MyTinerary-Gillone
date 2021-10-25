@@ -1,10 +1,8 @@
-### MyTinerary Web App 🌎
+## MyTinerary Web App 🌎
 
 MyTynerary es una aplicación de viajes que fue realizada en cinco semanas como proyecto integrador de los distintos conceptos vistos a lo largo de las mismas en el bootcamp cursado en MindHub
 
 ## Empezamos! 🚀
-
-Se puede ver una breve demostración en youtube en el siguiente link: [Youtube](https://youtu.be/A2Qr7M233Qw)
 
 ### Demo 💻
 
