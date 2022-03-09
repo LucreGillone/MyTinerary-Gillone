@@ -10,6 +10,7 @@ import NoItineraries from "../components/NoItineraries"
 
 const City = (props) => {
     const [loading, setLoading] = useState(true)
+    console.log(props)
 
     useEffect(() => {
         window.scrollTo(0,0)
