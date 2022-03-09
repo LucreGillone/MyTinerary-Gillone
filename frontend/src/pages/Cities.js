@@ -22,7 +22,7 @@ const Cities = (props) => {
         getAllCities()
        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-    console.log("FUNCIONA POR FAVOR")
+
 
     if (loading) {
         return <div className="loading">
