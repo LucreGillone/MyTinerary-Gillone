@@ -34,7 +34,6 @@ const SignUp = (props) => {
 
     const countries = ["Egypt", "Canada", "Australia", "Ireland", "Argentina", "Colombia", "Peru","United States", "Chile", "China", "Japan", "Pakistan", "Colombia", "Uruguay", "Cuba"]
 
-
     // useEffect(() => {
     //     axios.get(`https://restcountries.eu/rest/v2/all?fields=name`)
     //     .then((response) => 
@@ -48,7 +47,6 @@ const SignUp = (props) => {
         setNewUser({
             ...newUser,
             [e.target.name]: e.target.value
-            
         })
     }
     const submitForm = () => {
@@ -75,14 +73,13 @@ const SignUp = (props) => {
                         }
                     }
                     )  
-                   
                 )
                
             } else {
                 Toast.fire({
                     icon: 'error',
                     title: 'That email has already been used! Try with another one.'
-                  })
+                })
             }
         })        
         .catch((error) => {
@@ -123,7 +120,6 @@ const SignUp = (props) => {
                 title: 'Something went wrong! Come back later!'
               })
         })
-        
     }
 
     return (
