@@ -8,6 +8,7 @@ import usersActions from "../redux/actions/usersActions"
 import GoogleLogin from 'react-google-login'
 
 const SignUp = (props) => {
+    
     const [newUser, setNewUser] = useState ({
         firstName: "",
         lastName: "",
@@ -30,8 +31,9 @@ const SignUp = (props) => {
           toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
     })
- 
+
     const countries = ["Egypt", "Canada", "Australia", "Ireland", "Argentina", "Colombia", "Peru","United States", "Chile", "China", "Japan", "Pakistan", "Colombia", "Uruguay", "Cuba"]
+
 
     // useEffect(() => {
     //     axios.get(`https://restcountries.eu/rest/v2/all?fields=name`)
@@ -145,8 +147,8 @@ const SignUp = (props) => {
                         <select name="country" onChange={inputHandler}>
                             <option>Choose your country</option>
                             {countries.map((country,index) => 
-                            <option key={index} value={country.name}> 
-                                {country.name}
+                            <option key={index} value={country}> 
+                                {country}
                             </option>)}
                         </select>
                         <input type="email" onChange={inputHandler} name="email" placeholder="Email" autoComplete="nope"/>
@@ -168,6 +170,7 @@ const SignUp = (props) => {
                     <Link to="/logIn"><h5>Log In</h5></Link>
                 </span>
             </div>
+               
             </div>
            
         </main>
