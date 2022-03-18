@@ -8,7 +8,7 @@ import usersActions from "../redux/actions/usersActions"
 import GoogleLogin from 'react-google-login'
 
 const SignUp = (props) => {
-    const [countries, setCountries] = useState ([])
+    // const [countries, setCountries] = useState ([])
     const [newUser, setNewUser] = useState ({
         firstName: "",
         lastName: "",
@@ -31,15 +31,17 @@ const SignUp = (props) => {
           toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
     })
- 
-    useEffect(() => {
-        axios.get(`https://restcountries.eu/rest/v2/all?fields=name`)
-        .then((response) => 
-        setCountries(response.data))
-        .catch((error) => console.log(error))
+
+    const countries = ["Egypt", "Canada", "Australia", "Ireland", "Argentina", "Colombia", "Peru","United States", "Chile", "China", "Japan", "Pakistan", "Colombia", "Uruguay", "Cuba"]
+
+    // useEffect(() => {
+    //     axios.get(`https://restcountries.eu/rest/v2/all?fields=name`)
+    //     .then((response) => 
+    //     setCountries(response.data))
+    //     .catch((error) => console.log(error))
     
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    // // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [])
    
     const inputHandler = (e) => {
         setNewUser({
