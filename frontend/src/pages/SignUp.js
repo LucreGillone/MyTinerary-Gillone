@@ -32,7 +32,7 @@ const SignUp = (props) => {
         }
     })
 
-    const countries = ["Egypt", "Canada", "Australia", "Ireland", "Argentina", "Colombia", "Peru","United States", "Chile", "China", "Japan", "Pakistan", "Colombia", "Uruguay", "Cuba"]
+    const countries = ["Amsterdam", "Argentina", "Australia", "Canada", "Chile", "China", "Colombia", "Egypt", "England", "France", "Greece", "Iceland", "India", "Indonesia", "Italy", "Ireland", "Japan", "Peru", "Russia", "United States", "Uruguay"]
 
     // useEffect(() => {
     //     axios.get(`https://restcountries.eu/rest/v2/all?fields=name`)

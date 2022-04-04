@@ -53,15 +53,6 @@ const Cities = (props) => {
         props.filterCities(e.target.value)
     }
 
-    // const alphabeticalOrder = JSON.parse(JSON.stringify(props.infoCities))//json stringify
-
-    // const alphabetical = () => {
-    //     alphabeticalOrder.sort(function (a,b) {
-    //         return a.alphabeticalOrder.city.localeCompare(b.alphabeticalOrder.city)
-    //     })       
-    // } 
-    // console.log(alphabeticalOrder)
-
     return (
         <div className="body">
                 <Nav/> 
@@ -70,7 +61,6 @@ const Cities = (props) => {
                         <div className="inputContainer">
                         <img src="/assets/plane_icon.png" alt="plane icon"/>
                        <input type="text" placeholder="Choose your destination" onChange={search}/>
-                       {/* <button onClick={alphabetical}>A-Z</button> */}
                     </div>
                     <div className="citiesContainer">
                         {showCities}
